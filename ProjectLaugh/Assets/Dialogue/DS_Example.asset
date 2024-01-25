@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
+  m_Name: DS_Example
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - displayText: "Isekai\u2019d?"
+    speaker: Guide1
+    NodeId: StoryStart
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: What are you saying?
+    speaker: Guide1
+    NodeId: 1621350716
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: 'What is that? '
+    speaker: Guide1
+    NodeId: 1827138300
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: "Dunno, pretty sure that\u2019s what the last guy said though."
+    speaker: Guide2
+    NodeId: 353990844
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Whatever, that guy was a loser
+    speaker: Guide1
+    NodeId: 1043814538
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: "I bet you 5 crooks he won\u2019t even make it to the demon king."
+    speaker: Guide1
+    NodeId: 275552026
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: What about this guy?
+    speaker: Guide2
+    NodeId: 1236605661
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Mmm, let's see.
+    speaker: Guide1
+    NodeId: 1304623336
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: A comedian? Don't know what HE could do..
+    speaker: Guide1
+    NodeId: 322999957
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Kill the demon king with laughter?
+    speaker: Guide1
+    NodeId: 118441910
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Hold on.. he can't even do that!
+    speaker: Guide1
+    NodeId: 1573945969
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: He bombed his last set so hard he ended up here!
+    speaker: Guide1
+    NodeId: 1012009189
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Who knows?
+    speaker: Guide2
+    NodeId: 1215464490
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Maybe he has other redeeming traits.
+    speaker: Guide2
+    NodeId: 893212775
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: ...
+    speaker: Guide1
+    NodeId: 1822920628
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: He died from a tomato dude...
+    speaker: Guide2
+    NodeId: 1075750882
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Quick! Bring me the script!
+    speaker: Guide1
+    NodeId: 470888452
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: 'Uh... '
+    speaker: Guide2
+    NodeId: 1135650184
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: I think Molly might've ate it.
+    speaker: Guide2
+    NodeId: 330981467
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Woof!
+    speaker: Molly
+    NodeId: 640607352
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Who's dog even is that-
+    speaker: Guide1
+    NodeId: 858415530
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Forget it, I have it mostly memorized.
+    speaker: Guide1
+    NodeId: 1970278049
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Uhh lets see... how's it go...
+    speaker: Guide1
+    NodeId: 898107621
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Let's uhh start with your name
+    speaker: Guide1
+    NodeId: 1691625224
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: '[Player inputs a name here]'
+    speaker: Player
+    NodeId: 68363539
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Alright Mister...
+    speaker: Guide1
+    NodeId: 1910715959
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: What is that?
+    speaker: Guide1
+    NodeId: 72996814
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Is that supposed to be your name?
+    speaker: Guide1
+    NodeId: 1097882667
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Screw it  let's just go with Bob.
+    speaker: Guide1
+    NodeId: 1549191844
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: Welcome to MagicLand Bob!
+    speaker: Guide1
+    NodeId: 879496593
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: You're dead!
+    speaker: Guide1
+    NodeId: 2118212468
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: But hey! We can grant you a second chance in MagicLand!
+    speaker: Guide2
+    NodeId: 1033095578
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: All you have to do is promise to kill the demon klng!
+    speaker: Guide2
+    NodeId: 1476009817
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: What is your answer?
+    speaker: System
+    NodeId: 53385404
+    choicesText:
+    - choiceString: Yes!
+      nodeRef: 606559663
+    - choiceString: Hell Yes!
+      nodeRef: 606559663
+    isMovement: 0
+    movementDescription: 
+  - displayText: Glad you are Excited!
+    speaker: Guide1
+    NodeId: 606559663
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: If you look here, you can see your starting attributes.
+    speaker: Guide1
+    NodeId: 1415426588
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: We also gave you three extra attribute points to allocate as you
+      like!
+    speaker: Guide1
+    NodeId: 1641938139
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+  - displayText: '[End of sequence]'
+    speaker: System
+    NodeId: 1837883047
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
