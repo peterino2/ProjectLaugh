@@ -42,7 +42,7 @@ namespace Dialogue
 
         public Dictionary<string, DialogueNode> NodesByName = new Dictionary<string, DialogueNode>();
 
-        public void OnValidate()
+        public void BuildRefmap()
         {
             NodesByName.Clear();
             foreach (var x in DialogueLines)
@@ -65,6 +65,11 @@ namespace Dialogue
                     NodesByName[x.NodeId] = x;
                 }
             }
+        }
+
+        public void OnValidate()
+        {
+            BuildRefmap();
         }
     }
 }
