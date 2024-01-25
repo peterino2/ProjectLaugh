@@ -54,7 +54,7 @@ public class DialogueSystem : MonoBehaviour
     public void forward()
     {
         dialogueIndex += 1;
-        if (dialogueIndex > ActiveDialogue.DialogueLines.Count)
+        if (dialogueIndex >= ActiveDialogue.DialogueLines.Count)
         {
             hide();
             return;
