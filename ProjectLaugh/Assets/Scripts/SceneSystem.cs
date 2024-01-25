@@ -190,7 +190,7 @@ public class SceneThread
         while(m_executionLines[m_currentLine].Tick())
         {
             ++m_currentLine;
-            if(!m_executionLines[m_currentLine].IsInstant())
+            if(!m_executionLines[m_currentLine - 1].IsInstant())
             {
                 break;
             }
@@ -245,6 +245,11 @@ public class SceneSystem : MonoBehaviour
             DontDestroyOnLoad(this);
             system = this;
         }
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void OnEnable()
