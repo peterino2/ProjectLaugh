@@ -20,6 +20,7 @@ public class GameStateManager : MonoBehaviour
     {
         
     }
+
     private void Awake()
     {
         if (manager && this != manager)

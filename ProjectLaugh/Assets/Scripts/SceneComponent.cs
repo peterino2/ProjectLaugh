@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SceneComponent : MonoBehaviour
 {
+    public static Vector3 INVALID_POSITION = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+
     [SerializeField]
     private string m_sceneObjectName = null;
 
@@ -11,6 +13,8 @@ public class SceneComponent : MonoBehaviour
 
     [SerializeField]
     private List<string> m_sceneTags = null;
+
+    private Vector3 m_savedPosition = INVALID_POSITION;
 
     public bool HasTag(string tag)
     {
