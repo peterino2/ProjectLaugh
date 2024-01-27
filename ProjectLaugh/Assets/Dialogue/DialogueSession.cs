@@ -32,6 +32,7 @@ namespace Dialogue
 
         public bool isMovement;
         public string movementDescription;
+        public float characterRate = 20;
     }
     
     [CreateAssetMenu(fileName = "DS_", menuName = "DialogueSession", order = 0)]

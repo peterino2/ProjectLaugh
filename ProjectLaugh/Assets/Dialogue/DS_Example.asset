@@ -13,204 +13,244 @@ MonoBehaviour:
   m_Name: DS_Example
   m_EditorClassIdentifier: 
   DialogueLines:
-  - displayText: "Isekai\u2019d?"
+  - displayText: Isekai'd?
     speaker: Guide1
     NodeId: StoryStart
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: What are you saying?
     speaker: Guide1
     NodeId: 1621350716
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: 'What is that? '
     speaker: Guide1
     NodeId: 1827138300
     choicesText: []
     isMovement: 0
     movementDescription: 
-  - displayText: "Dunno, pretty sure that\u2019s what the last guy said though."
+    characterRate: 20
+  - displayText: Dunno, pretty sure that's what the last guy said though.
     speaker: Guide2
     NodeId: 353990844
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Whatever, that guy was a loser
     speaker: Guide1
     NodeId: 1043814538
     choicesText: []
     isMovement: 0
     movementDescription: 
-  - displayText: "I bet you 5 crooks he won\u2019t even make it to the demon king."
+    characterRate: 20
+  - displayText: I bet you 5 crooks he won't even make it to the demon king.
     speaker: Guide1
     NodeId: 275552026
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: What about this guy?
     speaker: Guide2
     NodeId: 1236605661
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 20
   - displayText: Mmm, let's see.
     speaker: Guide1
     NodeId: 1304623336
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: A comedian? Don't know what HE could do..
     speaker: Guide1
     NodeId: 322999957
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Kill the demon king with laughter?
     speaker: Guide1
     NodeId: 118441910
     choicesText: []
     isMovement: 0
     movementDescription: 
-  - displayText: Hold on.. he can't even do that!
+    characterRate: 30
+  - displayText: Hold on..
     speaker: Guide1
     NodeId: 1573945969
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 20
+  - displayText: he can't even do that!
+    speaker: Guide1
+    NodeId: 1547773589
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
   - displayText: He bombed his last set so hard he ended up here!
     speaker: Guide1
     NodeId: 1012009189
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 20
   - displayText: Who knows?
     speaker: Guide2
     NodeId: 1215464490
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Maybe he has other redeeming traits.
     speaker: Guide2
     NodeId: 893212775
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: ...
     speaker: Guide1
     NodeId: 1822920628
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 10
   - displayText: He died from a tomato dude...
-    speaker: Guide2
+    speaker: Guide1
     NodeId: 1075750882
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Quick! Bring me the script!
     speaker: Guide1
     NodeId: 470888452
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: 'Uh... '
     speaker: Guide2
     NodeId: 1135650184
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 20
   - displayText: I think Molly might've ate it.
     speaker: Guide2
     NodeId: 330981467
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 20
   - displayText: Woof!
     speaker: Molly
     NodeId: 640607352
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Who's dog even is that-
     speaker: Guide1
     NodeId: 858415530
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Forget it, I have it mostly memorized.
     speaker: Guide1
     NodeId: 1970278049
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Uhh lets see... how's it go...
     speaker: Guide1
     NodeId: 898107621
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Let's uhh start with your name
     speaker: Guide1
     NodeId: 1691625224
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: '[Player inputs a name here]'
     speaker: Player
     NodeId: 68363539
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 10
   - displayText: Alright Mister...
     speaker: Guide1
     NodeId: 1910715959
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: What is that?
     speaker: Guide1
     NodeId: 72996814
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Is that supposed to be your name?
     speaker: Guide1
     NodeId: 1097882667
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Screw it  let's just go with Bob.
     speaker: Guide1
     NodeId: 1549191844
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Welcome to MagicLand Bob!
     speaker: Guide1
     NodeId: 879496593
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: You're dead!
     speaker: Guide1
     NodeId: 2118212468
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: But hey! We can grant you a second chance in MagicLand!
     speaker: Guide2
     NodeId: 1033095578
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: All you have to do is promise to kill the demon klng!
     speaker: Guide2
     NodeId: 1476009817
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: What is your answer?
     speaker: System
     NodeId: 53385404
@@ -221,18 +261,21 @@ MonoBehaviour:
       nodeRef: 606559663
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: Glad you are Excited!
     speaker: Guide1
     NodeId: 606559663
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: If you look here, you can see your starting attributes.
     speaker: Guide1
     NodeId: 1415426588
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: We also gave you three extra attribute points to allocate as you
       like!
     speaker: Guide1
@@ -240,9 +283,11 @@ MonoBehaviour:
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
   - displayText: '[End of sequence]'
     speaker: System
     NodeId: 1837883047
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
