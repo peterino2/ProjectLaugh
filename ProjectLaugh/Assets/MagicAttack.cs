@@ -11,6 +11,7 @@ public class MagicAttack : MonoBehaviour
     void Start()
     {
         swordCollider = GetComponent<Collider2D>();
+        swordCollider.enabled = false;
         rightAttackOffset = transform.position;
     }
 
