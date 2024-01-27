@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,14 +21,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 1f;
     // public float collisionOffset = 0.05f;
-    // public ContactFilter2D movementFilter;
     public MagicAttack magicAttack;
     Vector2 movementInput;
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer spriteRenderer;
 
-    // List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    public ContactFilter2D interactionFilter;
+    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     // bool canMove = true;
     // bool isAttacking = false;
     // Start is called before the first frame update
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    public float interactionDistance;
 
     // Update is called once per frame
     void Update()
@@ -62,6 +65,30 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) == true) {
             animator.SetTrigger("magicAttack");
+        }
+        
+        int count = rb.Cast(
+                 movementInput,
+                 interactionFilter,
+                 castCollisions,
+                 interactionDistance
+             );
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnInteractInput();
+        }
+    }
+
+    public void OnInteractInput()
+    {
+        for (int i = 0; i < castCollisions.Count; i++)
+        {
+            var x = castCollisions[i].transform.gameObject.GetComponent<Interactable>();
+            if (x != null)
+            {
+                x.OnInteract(gameObject);
+            }
         }
     }
 
