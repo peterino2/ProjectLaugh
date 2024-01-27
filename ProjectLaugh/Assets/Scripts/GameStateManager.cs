@@ -6,13 +6,11 @@ public class GameStateManager : MonoBehaviour
 {
     private static GameStateManager manager = null;
 
+    public Dictionary<string, float> floatValues = new Dictionary<string, float>();
+    public Dictionary<string, string> stringValues = new Dictionary<string, string>();
+
     public static GameStateManager Get()
     {
-        if(!manager)
-        {
-            manager = new GameStateManager();
-        }
-
         return manager;
     }
 
@@ -23,19 +21,11 @@ public class GameStateManager : MonoBehaviour
 
     private void Awake()
     {
-        if (manager && this != manager)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            manager = this;
-            m_tags = new HashSet<string>();
-        }
+        DontDestroyOnLoad(this);
+        manager = this;
     }
 
-    private HashSet<string> m_tags;
+    private HashSet<string> m_tags = new HashSet<string>();
 
     public bool AddTag(string tag)
     {

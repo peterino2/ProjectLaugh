@@ -38,9 +38,6 @@ namespace Dialogue
 
         // do not edit, should auto update.
         public int nodeIndex = 0;
-
-        public bool hasSpecialEvent = false;
-        public string specialEvent = "";
     }
     
     [CreateAssetMenu(fileName = "DS_", menuName = "DialogueSession", order = 0)]

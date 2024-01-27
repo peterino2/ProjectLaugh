@@ -83,9 +83,9 @@ public class DialogueSystem : MonoBehaviour
             showChoices();
         }
 
-        if (activeNode.hasSpecialEvent)
+        if (activeNode.isMovement)
         {
-            handleSpecialEvent(activeNode.specialEvent);
+            SceneSystem.Get().ExecuteAction(activeNode.movementDescription);
         }
     }
 
@@ -210,6 +210,5 @@ public class DialogueSystem : MonoBehaviour
     {
         isInSpecialEvent = true;
         Debug.Log("HANDLING SPECIAL EVENT " + eventString);
-        
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Reflection;
+using Dialogue.Gags;
 
 public abstract class SceneActionBase
 {
@@ -97,6 +98,19 @@ public abstract class SceneActionBase
     }
 }
 
+public class BlankAction : SceneActionBase
+{
+    public override bool IsInstant()
+    {
+        return true;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        return true;
+    }
+}
+
 public class InvalidAction : SceneActionBase
 {
     public override bool IsInstant()
@@ -106,7 +120,6 @@ public class InvalidAction : SceneActionBase
 
     public override bool TryParse(string[] parameters)
     {
-        Debug.LogError("SceneAction: Invalid Action Created");
         return false;
     }
 }
@@ -530,6 +543,7 @@ public class SceneSystem : MonoBehaviour
 
         parameters.RemoveAt(0);
 
+        
         switch(actionType)
         {
             case "MoveTo":
@@ -544,6 +558,12 @@ public class SceneSystem : MonoBehaviour
             case "MoveArc":
                 action = new MoveArc();
                 break;
+            
+            case "PlayerSetName":
+                GagPlayerNameEntry.Get().StartGag();
+                action = new BlankAction();
+                break;
+            
             default:
                 Debug.LogError("SceneSystem: Unable to parse action \"" + actionToParse + "\"");
                 action = new InvalidAction();
