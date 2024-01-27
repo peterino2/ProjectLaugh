@@ -1,9 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Dialogue;
 using TMPro;
+using UnityEditor.Profiling;
+using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -14,17 +15,22 @@ public class DialogueSystem : MonoBehaviour
         return gDialogueSystem;
     }
     
-    public TextMeshProUGUI DisplayText; 
-    public TextMeshProUGUI SpeakerName; 
-    public Canvas CanvasRoot;
+    public TextMeshProUGUI displayText; 
+    public TextMeshProUGUI speakerName; 
+    public Canvas canvasRoot;
     
-    [NonSerialized]
-    public DialogueSession ActiveDialogue;
+    private DialogueSession activeDialogue;
     
-    public SpeakerDB SpeakerDatabase;
+    public SpeakerDB speakerDatabase;
 
-    private DialogueNode ActiveNode;
+    private DialogueNode activeNode;
     private int dialogueIndex = 0;
+    
+    public Image portraitImage;
+    public TextMeshProUGUI portaitDisplayText; // the text used when a portrait is displayed
+
+    private float timeTilNextChar = 0.0f;
+    private float speechSpeed = 0.1f;
 
     private void Awake()
     {
@@ -35,7 +41,7 @@ public class DialogueSystem : MonoBehaviour
     {
         if (session.NodesByName.Count != session.DialogueLines.Count)
         {
-            Debug.LogWarning("Had to force a rebuild of the nodemap? number of nodes in map did not equal number of dialogue lines... expected " 
+            Debug.LogWarning("Had to force a rebuild of the node map? number of nodes in map did not equal number of dialogue lines... expected " 
                              + session.DialogueLines.Count + " got " 
                              + session.NodesByName.Count );
             
@@ -44,34 +50,53 @@ public class DialogueSystem : MonoBehaviour
         Debug.Log("Session started " + session.ToString());
         
         show();
-        ActiveDialogue = session;
-        ActiveNode = ActiveDialogue.DialogueLines[0];
-        dialogueIndex = 0;
-        SpeakerName.text = ActiveNode.speaker;
-        DisplayText.text = ActiveNode.displayText;
+        activeDialogue = session;
+        setDialogueNode(dialogueIndex);
+    }
+
+    private SpeakerEntry activeSpeaker;
+
+    public void setDialogueNode(int nodeIndex)
+    {
+        dialogueIndex = nodeIndex;
+        activeNode = activeDialogue.DialogueLines[nodeIndex];
+        displayText.enabled = false;
+        activeSpeaker = speakerDatabase.speakersById[activeNode.speaker];
+        speakerName.text = activeSpeaker.DisplayName;
+        portraitImage.sprite = activeSpeaker.DisplayImage;
+        portaitDisplayText.enabled = true;
+        portaitDisplayText.text = "";
     }
 
     public void forward()
     {
-        dialogueIndex += 1;
-        if (dialogueIndex > ActiveDialogue.DialogueLines.Count)
+        if (displayTextIndex >= activeNode.displayText.Length)
         {
-            hide();
-            return;
+            dialogueIndex += 1;
+            displayTextIndex = 0;
+            if (dialogueIndex >= activeDialogue.DialogueLines.Count)
+            {
+                hide();
+                return;
+            }
+            
+            setDialogueNode(dialogueIndex);
         }
-        ActiveNode = ActiveDialogue.DialogueLines[dialogueIndex];
-        SpeakerName.text = ActiveNode.speaker;
-        DisplayText.text = ActiveNode.displayText;
+        else
+        {
+            displayTextIndex = activeNode.displayText.Length;
+            portaitDisplayText.text = activeNode.displayText;
+        }
     }
 
     public void show()
     {
-        CanvasRoot.enabled = true;
+        canvasRoot.enabled = true;
     }
 
     public void hide()
     {
-        CanvasRoot.enabled = false;
+        canvasRoot.enabled = false;
     }
 
     // Start is called before the first frame update
@@ -80,9 +105,20 @@ public class DialogueSystem : MonoBehaviour
         hide();
     }
 
+    private int displayTextIndex = 0;
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (activeNode != null && displayTextIndex < activeNode.displayText.Length)
+        {
+            timeTilNextChar -= Time.deltaTime;
+            while (timeTilNextChar < 0 && displayTextIndex < activeNode.displayText.Length || (displayTextIndex < activeNode.displayText.Length && activeNode.displayText[displayTextIndex] == ' ' ))
+            {
+                timeTilNextChar += 1.0f / activeNode.characterRate;
+                portaitDisplayText.text += activeNode.displayText[displayTextIndex];
+                displayTextIndex += 1;
+            }
+        }
     }
 }
