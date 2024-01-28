@@ -53208,29 +53208,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 771369979969180852, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
-      propertyPath: positionTwo.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 771369979969180852, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
-      propertyPath: positionTwo.y
-      value: 6.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 771369979969180852, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
-      propertyPath: interactionDistance
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 2314457855537613892, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
       propertyPath: m_Name
       value: Witch
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279046547256160205, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
-      propertyPath: m_Size.y
-      value: 0.04549186
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279046547256160205, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.014366843
       objectReference: {fileID: 0}
     - target: {fileID: 8432889884932932030, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
       propertyPath: m_LocalPosition.x
