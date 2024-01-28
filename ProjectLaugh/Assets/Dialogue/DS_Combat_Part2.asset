@@ -174,12 +174,3 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 16
-  - displayText: StartEndSequence
-    speaker: Bandit
-    NodeId: 966591099
-    choicesText: []
-    isMovement: 1
-    movementDescription: EndSequence
-    characterRate: 30
-    endDialogueAfter: 0
-    nodeIndex: 17

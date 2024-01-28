@@ -252,6 +252,7 @@ public class BanditBeatdown : SceneActionBase
             DialogueSystem.Get().isInSpecialEvent = false;
             DialogueSystem.Get().show();
             DialogueSystem.Get().forward(true);
+            DialogueSystem.Get().EndSequence();
         }
 
         return rv;
