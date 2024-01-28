@@ -184,7 +184,7 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 18
-  - displayText: Who's dog even is that-
+  - displayText: Where did that dog come from-
     speaker: Guide1
     NodeId: 858415530
     choicesText: []

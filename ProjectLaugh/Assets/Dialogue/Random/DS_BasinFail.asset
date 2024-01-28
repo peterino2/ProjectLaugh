@@ -13,12 +13,61 @@ MonoBehaviour:
   m_Name: DS_BasinFail
   m_EditorClassIdentifier: 
   DialogueLines:
-  - displayText: You failed
-    speaker: 
+  - displayText: You see a basin, and a fish swimming in it
+    speaker: System
     NodeId: 113522838
     choicesText: []
     isMovement: 0
     movementDescription: 
-    characterRate: 0
+    characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 0
+  - displayText: Do you try to grab the fish?
+    speaker: System
+    NodeId: 832618507
+    choicesText:
+    - choiceString: Yes
+      nodeRef: 1539894742
+    - choiceString: No
+      nodeRef: 1885683133
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 1
+  - displayText: You decide to leave it alone
+    speaker: System
+    NodeId: 1885683133
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 1
+    nodeIndex: 2
+  - displayText: You dart your hand into the pot.
+    speaker: System
+    NodeId: 1539894742
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 3
+  - displayText: The fish escapes your grasp
+    speaker: System
+    NodeId: 1420845822
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 4
+  - displayText: It's ok, fish are slippery. there's bound to be other things you're good at.
+    speaker: Guide2
+    NodeId: 1420845822
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 4

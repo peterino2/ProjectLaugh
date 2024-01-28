@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Dialogue;
 using UnityEngine;
@@ -8,12 +7,16 @@ public class StoryStart : MonoBehaviour
 {
     public Image BlackScreen;
     public DialogueSession gameStartDialogue;
+    public bool skipStart = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        BlackScreen.color = Color.black;
-        StartCoroutine(StartStory());
+        if(!skipStart)
+        {
+            BlackScreen.color = Color.black;
+            StartCoroutine(StartStory());
+        }
     }
 
     IEnumerator StartStory()
@@ -42,10 +45,5 @@ public class StoryStart : MonoBehaviour
         Debug.Log("Finished dialogue");
         DialogueSystem.Get().dialogueFinished -= finishDialogue;
         StartCoroutine(fadeBack());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

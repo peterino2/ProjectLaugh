@@ -53,6 +53,10 @@ namespace Dialogue
             NodesByName.Clear();
             foreach (var x in DialogueLines)
             {
+                if (x.characterRate == 0)
+                {
+                    x.characterRate = 30;
+                }
                 x.nodeIndex = NodesByName.Count;
                 if (NodesByName.ContainsKey(x.NodeId) || x.NodeId == "")
                 {

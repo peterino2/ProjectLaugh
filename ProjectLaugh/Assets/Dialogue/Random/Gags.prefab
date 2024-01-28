@@ -175,6 +175,7 @@ MonoBehaviour:
   PassedDialogue: {fileID: 11400000, guid: 6d0cd908aca28a544a7d46612f6fab81, type: 2}
   FailedDialogue: {fileID: 11400000, guid: 34697b2655afd89449d0d26a9014fd7c, type: 2}
   requirement: 3
+  completed: 0
 --- !u!1 &6191007025866009675
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +222,7 @@ GameObject:
   - component: {fileID: 302538020299458257}
   - component: {fileID: 7673867624859125264}
   - component: {fileID: 8871177120715724906}
-  - component: {fileID: 7590758347169409155}
+  - component: {fileID: 6329907401350667687}
   m_Layer: 0
   m_Name: ItemThree
   m_TagString: Untagged
@@ -358,7 +359,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.32, y: 0.32}
   m_Direction: 0
---- !u!114 &7590758347169409155
+--- !u!114 &6329907401350667687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,9 +372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  PassedDialogue: {fileID: 0}
-  FailedDialogue: {fileID: 0}
-  requirement: 1
+  PassedDialogue: {fileID: 11400000, guid: 8b2010c0b02b7db489549ee895f06865, type: 2}
+  FailedDialogue: {fileID: 11400000, guid: 0950bf84e4944824b9a76cbf880afa52, type: 2}
+  requirement: 3
+  completed: 0
 --- !u!1 &8621098903323066938
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  PassedDialogue: {fileID: 0}
-  FailedDialogue: {fileID: 0}
-  requirement: 1
+  PassedDialogue: {fileID: 11400000, guid: 0238a253e1960384a9be99dd17137173, type: 2}
+  FailedDialogue: {fileID: 11400000, guid: cf4263d8fe6b9694a9eb951671b015d0, type: 2}
+  requirement: 3
+  completed: 0

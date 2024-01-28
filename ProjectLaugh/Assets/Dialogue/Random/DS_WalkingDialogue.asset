@@ -10,33 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
-  m_Name: DS_AttributesAllocated_HighDex
+  m_Name: DS_WalkingDialogue
   m_EditorClassIdentifier: 
   DialogueLines:
-  - displayText: Wow...
+  - displayText: Man this area feels kind of unfinished
     speaker: Guide1
-    NodeId: 1771606424
+    NodeId: 2032227125
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 0
-  - displayText: You have created a hero with the profile of an anemic child.
-    speaker: Guide1
-    NodeId: 1414534128
+  - displayText: I think its fine... as long as we insert some cheeky dialogue here
+      or there
+    speaker: Guide2
+    NodeId: 2143511890
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 2
-  - displayText: You might survive with pickpocketing but expect some serious hardship
-    speaker: Guide1
-    NodeId: 1659674041
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 0
-    nodeIndex: 3
+    nodeIndex: 1
