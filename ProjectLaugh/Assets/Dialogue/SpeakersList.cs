@@ -13,8 +13,8 @@ namespace Dialogue
         [SerializeField] public List<AudioClip> SpeechBongs;
     }
     
-    [CreateAssetMenu(fileName = "SpeakerDatabase", menuName = "SpeakerDB", order = 0)]
-    public class SpeakerDB : ScriptableObject
+    [CreateAssetMenu(fileName = "SpeakerDatabase", menuName = "SpeakersDB", order = 1)]
+    public class SpeakersList : ScriptableObject
     {
         [SerializeField]
         public List<SpeakerEntry> speakers;
