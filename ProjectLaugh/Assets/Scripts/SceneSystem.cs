@@ -1089,28 +1089,25 @@ public class SceneSystem : MonoBehaviour
             case "TeleportTo":
                 action = new TeleportTo();
                 break;
-
             case "BanditSpawnAndAttack":
                 action = new BanditSpawnAndAttack();
                 break;
-            
             case "BanditSuckerPunch":
                 action = new BanditSuckerPunch();
                 break;
-            
             case "StartCombat2":
                 action = new BlankAction();
                 DialogueSystem.Get().startDialogue(Combat2);
                 break;
-            
             case "BanditBeatdown":
                 action = new BanditBeatdown();
                 break;
-            
             case "FinishEpilogue":
                 action = new BlankAction();
                 DialogueSystem.Get().hide();
                 DialogueSystem.Get().Defade();
+                FindObjectOfType<StoryStart>().BlackScreen.color = Color.clear;
+                ;
                 SceneManager.LoadScene("Ending");
                 break;
             

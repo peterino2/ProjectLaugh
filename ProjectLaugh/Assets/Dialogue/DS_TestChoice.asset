@@ -16,31 +16,9 @@ MonoBehaviour:
   - displayText: This is a question
     speaker: Molly
     NodeId: 824322979
-    choicesText:
-    - choiceString: This is a choice!
-      nodeRef: 1119867418
-    - choiceString: This is also a choice!
-      nodeRef: 1209580703
-    isMovement: 0
-    movementDescription: 
+    choicesText: []
+    isMovement: 1
+    movementDescription: FinishEpilogue
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 0
-  - displayText: You chose 1
-    speaker: Molly
-    NodeId: 1119867418
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 1
-    nodeIndex: 1
-  - displayText: You chose 2
-    speaker: Molly
-    NodeId: 1209580703
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 1
-    nodeIndex: 2
