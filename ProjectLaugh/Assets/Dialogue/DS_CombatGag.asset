@@ -59,7 +59,7 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 4
-  - displayText: This guy can't even hold a sword!
+  - displayText: This guy sucks!
     speaker: Guide1
     NodeId: 1842937422
     choicesText: []

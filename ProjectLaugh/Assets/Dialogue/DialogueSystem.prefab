@@ -254,9 +254,30 @@ MonoBehaviour:
   displayText: {fileID: 7289454338388274886}
   speakerName: {fileID: 3566220180038120958}
   canvasRoot: {fileID: 8395404146217458577}
-  speakerDatabase: {fileID: 11400000, guid: 486a5946e1f86614cbf74f5dfe69f239, type: 2}
   portraitImage: {fileID: 7862703605592603511}
   portaitDisplayText: {fileID: 598462466335963238}
+  isInSpecialEvent: 0
+  speakers:
+  - SpeakerId: Guide1
+    DisplayName: Guido
+    DisplayImage: {fileID: 21300000, guid: adec0cf55a8489946a337c7a15c4fe38, type: 3}
+    SpeechBongs: []
+  - SpeakerId: Guide2
+    DisplayName: Guida
+    DisplayImage: {fileID: 21300000, guid: 6fef1defdd9debb449b4b03e9bf8de4b, type: 3}
+    SpeechBongs: []
+  - SpeakerId: Dummy
+    DisplayName: Dummy
+    DisplayImage: {fileID: 21300000, guid: 0ec36e37fa247d549bb44331f4abb7c8, type: 3}
+    SpeechBongs: []
+  - SpeakerId: System
+    DisplayName: '   '
+    DisplayImage: {fileID: 21300000, guid: fe587db6430a93240a741a6eba7dcdc2, type: 3}
+    SpeechBongs: []
+  - SpeakerId: Molly
+    DisplayName: Molly
+    DisplayImage: {fileID: 21300000, guid: 0ec36e37fa247d549bb44331f4abb7c8, type: 3}
+    SpeechBongs: []
   choicesCanvas: {fileID: 3464787548684804977}
 --- !u!1 &3099317485113563723
 GameObject:
