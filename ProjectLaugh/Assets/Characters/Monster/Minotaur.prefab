@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1926575913713528673}
   - component: {fileID: 7987870514639450082}
   m_Layer: 0
-  m_Name: Minotaur - Sprite Sheet_0
+  m_Name: Minotaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
