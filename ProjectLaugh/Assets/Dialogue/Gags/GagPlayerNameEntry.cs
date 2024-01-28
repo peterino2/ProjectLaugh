@@ -1,6 +1,4 @@
-﻿using System;
-using TMPro;
-using UnityEditor.UI;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 

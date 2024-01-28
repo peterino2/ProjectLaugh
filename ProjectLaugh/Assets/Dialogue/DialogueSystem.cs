@@ -1,11 +1,7 @@
-using System;
+using System.Collections.Generic;
 using Dialogue;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Profiling;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
 using UnityEngine.UI;
 using ScriptableObjectArchitecture;
 
@@ -26,8 +22,6 @@ public class DialogueSystem : MonoBehaviour
     public Canvas canvasRoot;
     
     private DialogueSession activeDialogue;
-    
-    public SpeakerDB speakerDatabase;
 
     private DialogueNode activeNode;
     private int dialogueIndex = 0;
@@ -67,6 +61,9 @@ public class DialogueSystem : MonoBehaviour
         activeDialogue = session;
         setDialogueNode(dialogueIndex);
     }
+    
+    public List<SpeakerEntry> speakers;
+    public Dictionary<string, SpeakerEntry> speakersById = new Dictionary<string, SpeakerEntry>();
 
     private SpeakerEntry activeSpeaker;
 
@@ -76,7 +73,7 @@ public class DialogueSystem : MonoBehaviour
         dialogueIndex = nodeIndex;
         activeNode = activeDialogue.DialogueLines[nodeIndex];
         displayText.enabled = false;
-        activeSpeaker = speakerDatabase.speakersById[activeNode.speaker];
+        activeSpeaker = speakersById[activeNode.speaker];
         speakerName.text = activeSpeaker.DisplayName;
         portraitImage.sprite = activeSpeaker.DisplayImage;
         portaitDisplayText.enabled = true;
@@ -163,6 +160,10 @@ public class DialogueSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach (var speaker in speakers)
+        {
+            speakersById[speaker.SpeakerId] = speaker;
+        }
         hide();
     }
 

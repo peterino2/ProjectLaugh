@@ -59,7 +59,7 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 4
-  - displayText: This guy can't even hold a sword!
+  - displayText: This guy sucks!
     speaker: Guide1
     NodeId: 1842937422
     choicesText: []
@@ -191,3 +191,49 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 18
+  - displayText: It's a dummy... I don't think it's going to do anything
+    speaker: Guide2
+    NodeId: 1748490216
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 19
+  - displayText: Should we let bob have another turn?
+    speaker: Guide1
+    NodeId: 1067083718
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 20
+  - displayText: NO!
+    speaker: Guide2
+    NodeId: 208357103
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 21
+  - displayText: The dummy has yet to yield it's turn yet. You can't just attack
+      when it's not your turn!
+    speaker: Guide2
+    NodeId: 1828278448
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 22
+  - displayText: Alright lets just move onto live combat.
+    speaker: Guide2
+    NodeId: 984040017
+    choicesText: []
+    isMovement: 1
+    movementDescription: DespawnDummy
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 23
