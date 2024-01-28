@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: cea5dbe3bd4cc2141a2ab7fcbe69266f
+  - enabled: 1
+    path: Assets/Scenes/CombatGagSubScene.unity
+    guid: 3ae0e746a42ab3b4b9911ac65b7799ec
+  - enabled: 1
+    path: Assets/Scenes/Opening.unity
+    guid: 67336f1ceade5a04caadf756e76d01db
   m_configObjects: {}
