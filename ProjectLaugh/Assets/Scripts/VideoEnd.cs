@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using ScriptableObjectArchitecture;
+using UnityEngine.SceneManagement;
 
 public class VideoEnd : MonoBehaviour
 {
@@ -19,5 +20,8 @@ public class VideoEnd : MonoBehaviour
     void CheckOver(VideoPlayer vp) {
         Debug.Log("Video Ended");
         vidEnd.Raise();
+        
+        SceneManager.LoadScene("FirstScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("CombatGagSubScene", LoadSceneMode.Additive);
     }
 }
