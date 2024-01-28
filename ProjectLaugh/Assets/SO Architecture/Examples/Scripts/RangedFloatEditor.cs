@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+
 
 [CustomPropertyDrawer(typeof(RangedFloat), true)]
 public class RangedFloatDrawer : PropertyDrawer
@@ -49,3 +51,4 @@ public class RangedFloatDrawer : PropertyDrawer
 		EditorGUI.EndProperty();
 	}
 }
+#endif

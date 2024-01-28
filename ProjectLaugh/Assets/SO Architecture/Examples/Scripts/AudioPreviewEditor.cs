@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
 
 [CustomEditor(typeof(AudioEvent), true)]
@@ -30,3 +31,4 @@ public class AudioEventEditor : Editor
 		EditorGUI.EndDisabledGroup();
 	}
 }
+#endif

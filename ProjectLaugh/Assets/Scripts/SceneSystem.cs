@@ -205,9 +205,10 @@ public class BanditSpawnAndAttack : SceneActionBase
         m_timeRemaining -= Time.deltaTime;
         Debug.Log(m_timeRemaining);
         // play bandit attack animation
-
+        
         if (m_timeRemaining <= 0.0f)
         {
+            DialogueSystem.Get().handleSpecialEvent("BanditSpawnAndAttack");
             DialogueSystem.Get().isInSpecialEvent = false;
             DialogueSystem.Get().show();
             DialogueSystem.Get().forward();
