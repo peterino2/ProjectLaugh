@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
-  m_Name: DS_BasinPass
+  m_Name: DS_UrnPassed
   m_EditorClassIdentifier: 
   DialogueLines:
-  - displayText: You see a basin, and a fish swimming in it
+  - displayText: It's a clay pot, old and cracking
     speaker: System
-    NodeId: 113522838
+    NodeId: 1518844235
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 0
-  - displayText: Do you try to grab the fish?
+  - displayText: You feel an overwhelming urge to smash it.
     speaker: System
-    NodeId: 832618507
+    NodeId: 2140589923
     choicesText:
-    - choiceString: Yes
-      nodeRef: 1539894742
-    - choiceString: No
-      nodeRef: 1885683133
+    - choiceString: Do it
+      nodeRef: 1850709333
+    - choiceString: Don't
+      nodeRef: 1314748352
     isMovement: 0
     movementDescription: 
     characterRate: 30
@@ -37,64 +37,38 @@ MonoBehaviour:
     nodeIndex: 1
   - displayText: You decide to leave it alone
     speaker: System
-    NodeId: 1885683133
+    NodeId: 1314748352
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 1
     nodeIndex: 2
-  - displayText: You dart your hand into the pot.
+  - displayText: You bring your fist down on it with all your might
     speaker: System
-    NodeId: 1539894742
+    NodeId: 1850709333
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 3
-  - displayText: Holy smokes! you grab it!
+  - displayText: The urn explodes, and quickly reappears
     speaker: System
-    NodeId: 1539894742
+    NodeId: 851654845
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 3
-  - displayText: But you can't seem to move the fish from it's spot at all
-    speaker: System
-    NodeId: 1539894742
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 0
-    nodeIndex: 3
-  - displayText: I'll be honest we haven't really gotten that far yet.
+    nodeIndex: 4
+  - displayText: Oh huh.. interesting. I thought we fixed that bug... Great work
+      smashing it though!  Your strength came in handy!
     speaker: Guide1
-    NodeId: 1539894742
+    NodeId: 1558868914
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 3
-  - displayText: I'm not totally even sure what you can do with the fish
-    speaker: Guide1
-    NodeId: 1539894742
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 0
-    nodeIndex: 3
-  - displayText: So I'm going to have to ask you to put that back
-    speaker: Guide1
-    NodeId: 1539894742
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 0
-    nodeIndex: 3
+    nodeIndex: 5

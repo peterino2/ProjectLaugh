@@ -133,6 +133,15 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
 
+        Debug.Log(choiceID);
+        Debug.Log(destination);
+        Debug.Log(activeNode.choicesText[choiceID].nodeRef);
+        Debug.Log(activeNode.choicesText[choiceID].choiceString);
+        if (!activeDialogue.NodesByName.ContainsKey(destination))
+        {
+            activeDialogue.BuildRefmap();
+        }
+
         setDialogueNode(activeDialogue.NodesByName[destination].nodeIndex);
     }
 

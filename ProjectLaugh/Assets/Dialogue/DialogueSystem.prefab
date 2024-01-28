@@ -220,7 +220,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5171454235618039744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +255,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 00040033833585f4b940c1e6c8d5d2e1, type: 2}
+  onPlayerDamagedEvent: {fileID: 0}
   inDialogue: 0
   displayText: {fileID: 7289454338388274886}
   speakerName: {fileID: 3566220180038120958}
@@ -290,6 +291,7 @@ MonoBehaviour:
     DisplayImage: {fileID: 21300000, guid: 0ec36e37fa247d549bb44331f4abb7c8, type: 3}
     SpeechBongs: []
   choicesCanvas: {fileID: 3464787548684804977}
+  postAttributesAllocatedDialogue: {fileID: 0}
 --- !u!1 &3099317485113563723
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,10 +530,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4617493647799719587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 612.9813, y: -139.99997}
-  m_SizeDelta: {x: 1099.6581, y: 159.77}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 16.992126, y: 88.765045}
+  m_SizeDelta: {x: -92.32031, y: 159.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2831491352439137892
 CanvasRenderer:
@@ -896,10 +898,10 @@ RectTransform:
   - {fileID: 749832013041752054}
   m_Father: {fileID: 389172394188603955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -1.9891968, y: 114.38251}
-  m_SizeDelta: {x: 1191.9784, y: 228.76501}
+  m_SizeDelta: {x: -89.02161, y: 228.76501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2001939447798969768
 CanvasRenderer:
@@ -1046,10 +1048,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4617493647799719587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 682.9646, y: -140}
-  m_SizeDelta: {x: 959.6906, y: 159.77}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 86.9754, y: -25.617493}
+  m_SizeDelta: {x: -232.28778, y: 159.77002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1710824854887575876
 CanvasRenderer:
@@ -1079,7 +1081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample wha't
+  m_text: dsadsadshfjdkalhfdjklahfjdklahfjkdlahfjkdlahfjkdlahfjkdlahfjkdlahfjkdlahfjkdlahfjkdlahfjkdlsaf
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1f6306c416bfa4c96bac1eca973624, type: 2}
   m_sharedMaterial: {fileID: -1169603561403352184, guid: cb1f6306c416bfa4c96bac1eca973624, type: 2}

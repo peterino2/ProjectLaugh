@@ -27,9 +27,9 @@ MonoBehaviour:
     NodeId: 1901548498
     choicesText:
     - choiceString: Yes
-      nodeRef: 
-    - choiceString: No
       nodeRef: 792607234
+    - choiceString: No
+      nodeRef: 893182196
     isMovement: 0
     movementDescription: 
     characterRate: 30
@@ -41,7 +41,7 @@ MonoBehaviour:
     choicesText: []
     isMovement: 0
     movementDescription: 
-    characterRate: 0
+    characterRate: 30
     endDialogueAfter: 1
     nodeIndex: 2
   - displayText: You try to open the chest..
@@ -51,17 +51,17 @@ MonoBehaviour:
     isMovement: 0
     movementDescription: 
     characterRate: 30
-    endDialogueAfter: 1
+    endDialogueAfter: 0
     nodeIndex: 3
-  - displayText: (success) Your massive intellect stat made it possible for you to
-      find the latch.
+  - displayText: Your massive intellect stat made it possible for you to find the
+      latch.
     speaker: System
     NodeId: 383808576
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 30
-    endDialogueAfter: 1
+    endDialogueAfter: 0
     nodeIndex: 4
   - displayText: There is nothing inside the chest.
     speaker: System
@@ -70,7 +70,7 @@ MonoBehaviour:
     isMovement: 0
     movementDescription: 
     characterRate: 30
-    endDialogueAfter: 1
+    endDialogueAfter: 0
     nodeIndex: 5
   - displayText: It is only now you realize that this is infact.. a trash bin.
     speaker: System
@@ -79,5 +79,5 @@ MonoBehaviour:
     isMovement: 0
     movementDescription: 
     characterRate: 30
-    endDialogueAfter: 1
+    endDialogueAfter: 0
     nodeIndex: 6

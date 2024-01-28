@@ -29,7 +29,7 @@ MonoBehaviour:
     - choiceString: Yes
       nodeRef: 486223245
     - choiceString: No
-      nodeRef: 
+      nodeRef: 1262338354
     isMovement: 0
     movementDescription: 
     characterRate: 30
@@ -59,7 +59,7 @@ MonoBehaviour:
     choicesText: []
     isMovement: 0
     movementDescription: 
-    characterRate: 0
+    characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 4
   - displayText: You just push down on the lid dude... and it pops open..
@@ -78,5 +78,14 @@ MonoBehaviour:
     isMovement: 0
     movementDescription: 
     characterRate: 30
-    endDialogueAfter: 0
+    endDialogueAfter: 1
     nodeIndex: 6
+  - displayText: You decide to leave it alone
+    speaker: System
+    NodeId: 1262338354
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 1
+    nodeIndex: 7
