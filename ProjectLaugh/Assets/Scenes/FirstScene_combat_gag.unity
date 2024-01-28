@@ -30570,7 +30570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55072f868793ff34fb43b10eb6357dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneObjectName: Dummy
+  m_sceneObjectName: Dummy2
   m_sceneTags: []
 --- !u!4 &870387586 stripped
 Transform:

@@ -17,8 +17,8 @@ MonoBehaviour:
     speaker: Guide1
     NodeId: 1020534985
     choicesText: []
-    isMovement: 0
-    movementDescription: 
+    isMovement: 1
+    movementDescription: TeleportTo;Player;ArenaTP
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 0
