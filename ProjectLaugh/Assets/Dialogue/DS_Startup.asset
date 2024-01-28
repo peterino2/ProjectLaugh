@@ -58,7 +58,7 @@ MonoBehaviour:
     characterRate: 20
     endDialogueAfter: 0
     nodeIndex: 4
-  - displayText: I bet you 5 crooks he won't even make it to the demon king.
+  - displayText: I bet you he won't even make it to the demon king.
     speaker: Guide1
     NodeId: 275552026
     choicesText: []
@@ -85,7 +85,7 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 7
-  - displayText: A comedian? Don't know what HE could do..
+  - displayText: A failed comedian? Don't know what HE could do..
     speaker: Guide1
     NodeId: 322999957
     choicesText: []
@@ -94,7 +94,16 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 8
-  - displayText: Kill the demon king with laughter?
+  - displayText: Bombed his last set so hard, he ended up here.
+    speaker: Guide1
+    NodeId: 2097517957
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 9
+  - displayText: Maybe he can kill the demon king with cringe?
     speaker: Guide1
     NodeId: 118441910
     choicesText: []
@@ -102,17 +111,17 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 9
-  - displayText: Hold on..
-    speaker: Guide1
+    nodeIndex: 10
+  - displayText: Maybe he has other redeeming traits
+    speaker: Guide2
     NodeId: 1573945969
     choicesText: []
     isMovement: 0
     movementDescription: 
     characterRate: 20
     endDialogueAfter: 0
-    nodeIndex: 10
-  - displayText: he can't even do that!
+    nodeIndex: 11
+  - displayText: Sister...
     speaker: Guide1
     NodeId: 1547773589
     choicesText: []
@@ -120,8 +129,8 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 11
-  - displayText: He bombed his last set so hard he ended up here!
+    nodeIndex: 12
+  - displayText: He died from a tomato thrown at him..
     speaker: Guide1
     NodeId: 1012009189
     choicesText: []
@@ -129,8 +138,8 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 20
     endDialogueAfter: 0
-    nodeIndex: 12
-  - displayText: Who knows?
+    nodeIndex: 13
+  - displayText: Hey... I think he's awake!
     speaker: Guide2
     NodeId: 1215464490
     choicesText: []
@@ -138,34 +147,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 13
-  - displayText: Maybe he has other redeeming traits.
-    speaker: Guide2
-    NodeId: 893212775
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 0
     nodeIndex: 14
-  - displayText: ...
-    speaker: Guide1
-    NodeId: 1822920628
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 10
-    endDialogueAfter: 0
-    nodeIndex: 15
-  - displayText: He died from a tomato dude...
-    speaker: Guide1
-    NodeId: 1075750882
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 0
-    nodeIndex: 16
   - displayText: Quick! Bring me the script!
     speaker: Guide1
     NodeId: 470888452
@@ -174,8 +156,8 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 17
-  - displayText: 'Uh... '
+    nodeIndex: 15
+  - displayText: Uh...
     speaker: Guide2
     NodeId: 1135650184
     choicesText: []
@@ -183,7 +165,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 20
     endDialogueAfter: 0
-    nodeIndex: 18
+    nodeIndex: 16
   - displayText: I think Molly might've ate it.
     speaker: Guide2
     NodeId: 330981467
@@ -192,7 +174,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 20
     endDialogueAfter: 0
-    nodeIndex: 19
+    nodeIndex: 17
   - displayText: Woof!
     speaker: Molly
     NodeId: 640607352
@@ -201,7 +183,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 20
+    nodeIndex: 18
   - displayText: Who's dog even is that-
     speaker: Guide1
     NodeId: 858415530
@@ -210,7 +192,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 21
+    nodeIndex: 19
   - displayText: Forget it, I have it mostly memorized.
     speaker: Guide1
     NodeId: 1970278049
@@ -219,7 +201,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 22
+    nodeIndex: 20
   - displayText: Uhh lets see... how's it go...
     speaker: Guide1
     NodeId: 898107621
@@ -228,7 +210,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 23
+    nodeIndex: 21
   - displayText: Let's uhh start with your name
     speaker: Guide1
     NodeId: 1691625224
@@ -237,7 +219,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 24
+    nodeIndex: 22
   - displayText: '[Enter your name]'
     speaker: Guide1
     NodeId: 1043058416
@@ -246,7 +228,7 @@ MonoBehaviour:
     movementDescription: PlayerSetName
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 25
+    nodeIndex: 23
   - displayText: Alright Mister...
     speaker: Guide1
     NodeId: 1910715959
@@ -255,7 +237,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 26
+    nodeIndex: 24
   - displayText: What is that?
     speaker: Guide1
     NodeId: 72996814
@@ -264,7 +246,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 27
+    nodeIndex: 25
   - displayText: Is that supposed to be your name?
     speaker: Guide1
     NodeId: 1097882667
@@ -273,8 +255,8 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 28
-  - displayText: Screw it  let's just go with Bob.
+    nodeIndex: 26
+  - displayText: Screw it let's just go with Bob.
     speaker: Guide1
     NodeId: 1549191844
     choicesText: []
@@ -282,7 +264,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 29
+    nodeIndex: 27
   - displayText: Welcome to MagicLand Bob!
     speaker: Guide1
     NodeId: 879496593
@@ -291,7 +273,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 30
+    nodeIndex: 28
   - displayText: You're dead!
     speaker: Guide1
     NodeId: 2118212468
@@ -300,7 +282,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 31
+    nodeIndex: 29
   - displayText: But hey! We can grant you a second chance in MagicLand!
     speaker: Guide2
     NodeId: 1033095578
@@ -309,7 +291,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 32
+    nodeIndex: 30
   - displayText: All you have to do is promise to kill the demon klng!
     speaker: Guide2
     NodeId: 1476009817
@@ -318,7 +300,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 33
+    nodeIndex: 31
   - displayText: What is your answer?
     speaker: Guide1
     NodeId: 53385404
@@ -331,7 +313,7 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 34
+    nodeIndex: 32
   - displayText: Glad you are Excited!
     speaker: Guide1
     NodeId: 606559663
@@ -340,8 +322,8 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 35
-  - displayText: If you look here, you can see your starting attributes.
+    nodeIndex: 33
+  - displayText: Lets see your stats.
     speaker: Guide1
     NodeId: 1415426588
     choicesText: []
@@ -349,14 +331,31 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 36
-  - displayText: We also gave you three extra attribute points to allocate as you
-      like!
+    nodeIndex: 34
+  - displayText: Oh man... no wonder you died from tomato
     speaker: Guide1
-    NodeId: 1641938139
+    NodeId: 844297695
     choicesText: []
     isMovement: 0
     movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 35
+  - displayText: Here.. Have 3 extra skill points to spend free of charge.
+    speaker: Guide1
+    NodeId: 681137937
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 36
+  - displayText: open dialogue menu
+    speaker: Guide1
+    NodeId: 1641938139
+    choicesText: []
+    isMovement: 1
+    movementDescription: OpenAttributes
     characterRate: 30
     endDialogueAfter: 1
     nodeIndex: 37

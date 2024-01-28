@@ -32,7 +32,7 @@ namespace Dialogue
 
         public bool isMovement;
         public string movementDescription;
-        public float characterRate = 20;
+        public float characterRate = 20.0f;
 
         public bool endDialogueAfter = false;
 

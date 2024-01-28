@@ -12,7 +12,7 @@ public class MainMenuButton : MonoBehaviour
 
     public void StartScene()
     {
-        SceneManager.LoadScene("Scenes/FirstScene_combat_gag", LoadSceneMode.Single);
+        SceneManager.LoadScene("FirstScene", LoadSceneMode.Single);
     }
 
     // Update is called once per frame

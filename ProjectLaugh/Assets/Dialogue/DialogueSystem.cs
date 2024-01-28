@@ -14,6 +14,9 @@ public class DialogueSystem : MonoBehaviour
 
     public DialogueChoiceViewer viewer;
 
+    public delegate void BasicEvent();
+    public BasicEvent dialogueFinished;
+
     public static DialogueSystem Get()
     {
         return gDialogueSystem;
@@ -95,7 +98,14 @@ public class DialogueSystem : MonoBehaviour
 
         if (activeNode.isMovement)
         {
-            SceneSystem.Get().ExecuteAction(activeNode.movementDescription);
+            if (activeNode.movementDescription == "OpenAttributes")
+            {
+                HandleOpenAttributes();
+            }
+            else
+            {
+                SceneSystem.Get().ExecuteAction(activeNode.movementDescription);
+            }
         }
     }
 
@@ -154,6 +164,10 @@ public class DialogueSystem : MonoBehaviour
             {
                 hide();
                 inDialogue = false;
+                if (dialogueFinished != null)
+                {
+                    dialogueFinished();
+                }
                 return;
             }
             _onSpeechAudioEvent.Raise(); // Play Boops
@@ -249,5 +263,25 @@ public class DialogueSystem : MonoBehaviour
         Debug.Log("End Sequence Started...");
         // fade to black,
         // start the DS_EndSequence
+    }
+
+    public void HandleOpenAttributes()
+    {
+        isInSpecialEvent = true;
+        GagAttributeAllocator.Get().OpenAllocator();
+        hide();
+    }
+
+    public void HandleAttributesAllocated(DialogueSession sessionToStart)
+    {
+        isInSpecialEvent = false;
+        StartCoroutine(DelayThenStartSession(sessionToStart));
+    }
+
+    public DialogueSession postAttributesAllocatedDialogue;
+    IEnumerator DelayThenStartSession(DialogueSession sessionToStart)
+    {
+        yield return new WaitForSeconds(1.0f);
+        startDialogue(sessionToStart);
     }
 }
