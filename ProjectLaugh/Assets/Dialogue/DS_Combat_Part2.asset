@@ -109,7 +109,7 @@ MonoBehaviour:
     NodeId: 1611021218
     choicesText: []
     isMovement: 1
-    movementDescription: BanditSpawnAndAttack
+    movementDescription: BanditSpawnAndAttack;3.0
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 10
@@ -125,7 +125,7 @@ MonoBehaviour:
     - choiceString: Helicopter
       nodeRef: noref
     isMovement: 1
-    movementDescription: BanditSuckerPunch
+    movementDescription: BanditSuckerPunch;3.0
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 11
@@ -169,8 +169,17 @@ MonoBehaviour:
     speaker: Bandit
     NodeId: 1065747569
     choicesText: []
-    isMovement: 0
-    movementDescription: BanditBeatdown
+    isMovement: 1
+    movementDescription: BanditBeatdown;3.0
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 16
+  - displayText: StartEndSequence
+    speaker: Bandit
+    NodeId: 966591099
+    choicesText: []
+    isMovement: 1
+    movementDescription: EndSequence
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 17

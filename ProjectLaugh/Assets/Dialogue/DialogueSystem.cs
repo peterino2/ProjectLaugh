@@ -20,6 +20,8 @@ public class DialogueSystem : MonoBehaviour
     public TextMeshProUGUI displayText; 
     public TextMeshProUGUI speakerName; 
     public Canvas canvasRoot;
+
+    public DialogueSession endSequenceDS;
     
     private DialogueSession activeDialogue;
 
@@ -117,7 +119,7 @@ public class DialogueSystem : MonoBehaviour
 
     private float debounce = 0.2f;
     
-    public void forward()
+    public void forward(bool force=false)
     { 
         inDialogue = true;
         if (isInSpecialEvent)
@@ -126,11 +128,14 @@ public class DialogueSystem : MonoBehaviour
         }
         
         debounce = 0.2f;
-        if (displayTextIndex >= activeNode.displayText.Length)
+        if (displayTextIndex >= activeNode.displayText.Length || force)
         {
-            if (activeNode.choicesText.Count > 0)
+            if (force)
             {
-                inDialogue = false;
+                Debug.Log("Forwarding with force parameter");
+            }
+            if (activeNode.choicesText.Count > 0 && !force)
+            {
                 return;
             }
             choicesCanvas.SetActive(false);
@@ -139,6 +144,7 @@ public class DialogueSystem : MonoBehaviour
             if (dialogueIndex >= activeDialogue.DialogueLines.Count || activeNode.endDialogueAfter)
             {
                 hide();
+                inDialogue = false;
                 return;
             }
             
@@ -220,5 +226,12 @@ public class DialogueSystem : MonoBehaviour
     {
         isInSpecialEvent = true;
         Debug.Log("HANDLING SPECIAL EVENT " + eventString);
+    }
+
+    public void EndSequence()
+    {
+        Debug.Log("End Sequence Started...");
+        // fade to black,
+        // start the DS_EndSequence
     }
 }
