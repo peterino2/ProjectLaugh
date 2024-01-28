@@ -95,15 +95,6 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 8
-  - displayText: W-wow bob...
-    speaker: Guide1
-    NodeId: 2137844470
-    choicesText: []
-    isMovement: 0
-    movementDescription: 
-    characterRate: 30
-    endDialogueAfter: 0
-    nodeIndex: 9
   - displayText: Select an attack!
     speaker: System
     NodeId: 1546480583
@@ -118,19 +109,22 @@ MonoBehaviour:
     movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
-    nodeIndex: 10
+    nodeIndex: 9
   - displayText: Bob Attacks!
     speaker: System
     NodeId: 1428163534
-    choicesText:
-    - choiceString: Tickle The Pickle
-      nodeRef: 
-    - choiceString: Knee Slap Zap
-      nodeRef: 
-    - choiceString: Giggle Jiggle Wiggle
-      nodeRef: 
+    choicesText: []
     isMovement: 1
     movementDescription: PlayCombatAttack
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 10
+  - displayText: W-wow bob...
+    speaker: Guide1
+    NodeId: 2137844470
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 11
