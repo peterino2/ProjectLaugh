@@ -134,7 +134,7 @@ MonoBehaviour:
   movementType: 0
   moveSpeed: 1
   positionOne: {x: -6.7, y: 3, z: 0}
-  positionTwo: {x: 2.1, y: 6.1, z: 0}
+  positionTwo: {x: 0, y: 6.36, z: 0}
   positionThree: {x: 0, y: 0, z: 0}
   interactionFilter:
     useTriggers: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  interactionDistance: 0.8
+  interactionDistance: 0.05
 --- !u!50 &5329498489881713754
 Rigidbody2D:
   serializedVersion: 4
@@ -210,7 +210,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0049560666, y: 0.028618582}
+  m_Offset: {x: -0.0049560666, y: 0.014366843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.17}
@@ -221,7 +221,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0920217, y: 0.07399534}
+  m_Size: {x: 0.0920217, y: 0.04549186}
   m_EdgeRadius: 0
 --- !u!95 &7738923744492429703
 Animator:
