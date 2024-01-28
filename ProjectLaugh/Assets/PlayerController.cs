@@ -242,6 +242,9 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
    
     }
+    public void MagicAttack(){
+        animator.SetTrigger("magicAttack");
+    }
 
     public void Teleport(int positionNumber) {
         gameObject.transform.position = teleportList[positionNumber];
