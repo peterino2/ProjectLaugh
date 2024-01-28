@@ -28,6 +28,11 @@ public class StoryStart : MonoBehaviour
     }
 
     private float fadeValue = 1.0f;
+
+    public void FadeIn()
+    {
+        StartCoroutine(fadeBack());
+    }
     
     IEnumerator fadeBack()
     {
@@ -35,6 +40,25 @@ public class StoryStart : MonoBehaviour
         {
             BlackScreen.color = new Color(0, 0, 0, Mathf.Max(fadeValue, 0.0f));
             fadeValue -= Time.deltaTime;
+            Debug.Log(BlackScreen.color.ToString());
+            yield return null;
+        }
+    }
+
+    public void StartFadeToBlack()
+    {
+        Debug.Log("Fading");
+        fadeValue = 0.0f;
+        StartCoroutine(FadeToBlack());
+    }
+    
+    IEnumerator FadeToBlack()
+    {
+        Debug.Log("Doing Fade");
+        while (fadeValue < 1.0f)
+        {
+            BlackScreen.color = new Color(0, 0, 0, Mathf.Max(fadeValue, 0.0f));
+            fadeValue += Time.deltaTime;
             Debug.Log(BlackScreen.color.ToString());
             yield return null;
         }

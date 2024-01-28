@@ -50563,7 +50563,7 @@ Transform:
   m_GameObject: {fileID: 946362713}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.415, y: 0.986, z: -10}
+  m_LocalPosition: {x: 2.415, y: 2.406, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -51050,6 +51050,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8582122657285996027, guid: e94b51606af2ded4c88e3522d1156da9, type: 3}
+      propertyPath: ss
+      value: 
+      objectReference: {fileID: 1390888198}
+    - target: {fileID: 8582122657285996027, guid: e94b51606af2ded4c88e3522d1156da9, type: 3}
+      propertyPath: endSequenceDS
+      value: 
+      objectReference: {fileID: 11400000, guid: 575438cc209459a45ba9aabe07ab5eaf, type: 2}
+    - target: {fileID: 8582122657285996027, guid: e94b51606af2ded4c88e3522d1156da9, type: 3}
+      propertyPath: EpilogueSession
+      value: 
+      objectReference: {fileID: 11400000, guid: 575438cc209459a45ba9aabe07ab5eaf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -51850,7 +51862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlackScreen: {fileID: 89885736}
   gameStartDialogue: {fileID: 11400000, guid: a0492723a570f6f4ab599aa167970555, type: 2}
-  skipStart: 0
+  skipStart: 1
 --- !u!4 &1390888199
 Transform:
   m_ObjectHideFlags: 0
@@ -51974,7 +51986,7 @@ Transform:
   m_GameObject: {fileID: 1445089613}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.415, y: 0.986, z: -10}
+  m_LocalPosition: {x: 2.415, y: 2.406, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54033,7 +54045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8432889884932932030, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.986
+      value: 2.406
       objectReference: {fileID: 0}
     - target: {fileID: 8432889884932932030, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
       propertyPath: m_LocalPosition.z

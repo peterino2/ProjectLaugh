@@ -1110,6 +1110,7 @@ public class SceneSystem : MonoBehaviour
             case "FinishEpilogue":
                 action = new BlankAction();
                 DialogueSystem.Get().hide();
+                DialogueSystem.Get().Defade();
                 SceneManager.LoadScene("Ending");
                 break;
             
