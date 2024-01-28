@@ -257,6 +257,8 @@ MonoBehaviour:
   speakerDatabase: {fileID: 11400000, guid: 486a5946e1f86614cbf74f5dfe69f239, type: 2}
   portraitImage: {fileID: 7862703605592603511}
   portaitDisplayText: {fileID: 598462466335963238}
+  isInSpecialEvent: 0
+  _onSpeechAudioEvent: {fileID: 11400000, guid: c261ebd27d3942841939a770acfdf601, type: 2}
   choicesCanvas: {fileID: 3464787548684804977}
 --- !u!1 &3099317485113563723
 GameObject:

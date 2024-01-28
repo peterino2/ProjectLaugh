@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d5a6a2750e8704f8a81189a6dc516c, type: 3}
+  m_Name: RandomSpeechBongs
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 2b713c395ac51ae44866eaa25b1fd8db, type: 3}
+  - {fileID: 8300000, guid: ffeb3f7e51a81474a8dea5a840f9d4c4, type: 3}
+  - {fileID: 8300000, guid: cfa94b951b8e1984e8f003ddcd2b9511, type: 3}
+  volume:
+    minValue: 0.37558693
+    maxValue: 0.5305166
+  pitch:
+    minValue: 0.9107983
+    maxValue: 1.1455399
