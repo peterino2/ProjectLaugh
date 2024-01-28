@@ -233,7 +233,7 @@ MonoBehaviour:
     NodeId: 984040017
     choicesText: []
     isMovement: 1
-    movementDescription: DespawnDummy
+    movementDescription: FadeOut;Dummy;1
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 23
