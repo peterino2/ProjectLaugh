@@ -115,7 +115,7 @@ MonoBehaviour:
     NodeId: 1428163534
     choicesText: []
     isMovement: 1
-    movementDescription: PlayCombatAttack
+    movementDescription: StorePosition;Player|MoveTo;Player;Dummy;10|SpawnDamageNumber;Dummy;lol|Wait;0.2|MoveTo;Player;$Player;10
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 10

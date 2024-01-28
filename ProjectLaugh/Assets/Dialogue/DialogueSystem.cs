@@ -104,7 +104,7 @@ public class DialogueSystem : MonoBehaviour
             }
             else
             {
-                SceneSystem.Get().ExecuteAction(activeNode.movementDescription);
+                SceneSystem.Get().ExecuteActionSequence(activeNode.movementDescription);
             }
         }
     }
