@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
+  m_Name: DS_ChestPass
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - displayText: It appears to be a chest
+    speaker: System
+    NodeId: 1012131201
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 0
+  - displayText: Do you try to open it?
+    speaker: System
+    NodeId: 1901548498
+    choicesText:
+    - choiceString: Yes
+      nodeRef: 
+    - choiceString: No
+      nodeRef: 792607234
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 1
+  - displayText: You decide to leave it alone
+    speaker: System
+    NodeId: 893182196
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 0
+    endDialogueAfter: 1
+    nodeIndex: 2
+  - displayText: You try to open the chest..
+    speaker: System
+    NodeId: 792607234
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 1
+    nodeIndex: 3
+  - displayText: (success) Your massive intellect stat made it possible for you to
+      find the latch.
+    speaker: System
+    NodeId: 383808576
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 1
+    nodeIndex: 4
+  - displayText: There is nothing inside the chest.
+    speaker: System
+    NodeId: 1566733546
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 1
+    nodeIndex: 5
+  - displayText: It is only now you realize that this is infact.. a trash bin.
+    speaker: System
+    NodeId: 55749485
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 1
+    nodeIndex: 6
