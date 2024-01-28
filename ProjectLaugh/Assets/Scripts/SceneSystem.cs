@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 using System.Reflection;
 using Dialogue.Gags;
 
+public enum Axis
+{
+    X = 0,
+    Y = 1,
+    Z = 2
+}
+
 public abstract class SceneActionBase
 {
     public abstract bool IsInstant();
@@ -29,6 +36,7 @@ public abstract class SceneActionBase
         return false;
     }
 
+    //Expected format: (x,y,z) OR scene object name as a string
     public static bool TryParseVector(string toParse, out Vector3 value)
     {
         value = new Vector3();
@@ -54,6 +62,16 @@ public abstract class SceneActionBase
             }
 
             value = new Vector3(x, y, z);
+        }
+        else if(toParse.StartsWith("$"))
+        {
+            GameObject sceneObject = SceneSystem.Get().GetSceneObject(toParse.Substring(1));
+            if (!sceneObject)
+            {
+                return false;
+            }
+
+            value = sceneObject.GetComponent<SceneComponent>().SavedPosition;
         }
         else
         {
@@ -92,6 +110,45 @@ public abstract class SceneActionBase
         return value != null;
     }
 
+    public static bool TryParseAxis(string toParse, out Axis value)
+    {
+        value = Axis.X;
+        if(toParse.Length < 1)
+        {
+            return false;
+        }
+
+        switch(toParse[0])
+        {
+            case 'X':
+                value = Axis.X;
+                break;
+            case 'Y':
+                value = Axis.Y;
+                break;
+            case 'Z':
+                value = Axis.Z;
+                break;
+            default:
+                return false;
+        }
+
+        return true;
+    }
+
+    //true = positive
+    public bool[] GetSigns(Vector3 vec)
+    {
+        bool[] signs = new bool[3];
+        
+        for(int i = 0; i < 3; i++)
+        {
+            signs[i] = vec[i] >= 0.0f;
+        }
+
+        return signs;
+    }
+
     private static void LogParseError(string raw, string type)
     {
         Debug.LogError("SceneAction: Unable to parse \"" + raw + "\" as \"" + type + "\"");
@@ -121,6 +178,37 @@ public class InvalidAction : SceneActionBase
     public override bool TryParse(string[] parameters)
     {
         return false;
+    }
+}
+
+public class StorePosition : SceneActionBase
+{
+    public override bool IsInstant()
+    {
+        return true;
+    }
+
+    public override bool Tick()
+    {
+        return true;
+    }
+
+    //TODO error checks
+    public override bool TryParse(string[] parameters)
+    {
+        GameObject obj;
+        TryParseObject(parameters[0], out obj);
+
+        Vector3 positionToStore = obj.transform.position;
+
+        if(parameters.Length > 1)
+        {
+            TryParseVector(parameters[1], out positionToStore);
+        }
+
+        obj.GetComponent<SceneComponent>().SavedPosition = positionToStore;
+
+        return true;
     }
 }
 
@@ -156,7 +244,13 @@ public class MoveTo : SceneActionBase
         Vector3 direction = m_destination - m_objectToMove.transform.position;
         
         m_objectToMove.transform.position += direction.normalized * m_velocity * Time.deltaTime;
-        return m_objectToMove.transform.position == m_destination;
+        
+        if(Vector3.SqrMagnitude(m_objectToMove.transform.position - m_destination) < 0.1f)
+        {
+            m_objectToMove.transform.position = m_destination;
+            return true;
+        }
+        return false;
     }
 
     public override bool TryParse(string[] parameters)
@@ -181,6 +275,29 @@ public class MoveTo : SceneActionBase
             return false;
         }
 
+        return true;
+    }
+}
+
+public class SpawnDamageNumber : SceneActionBase
+{
+    public override bool IsInstant()
+    {
+        return true;
+    }
+
+    public override bool Tick()
+    {
+        return base.Tick();
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        Vector3 position;
+        TryParseVector(parameters[0], out position);
+
+        
+        
         return true;
     }
 }
@@ -439,10 +556,89 @@ public class MoveArc : SceneActionBase
             return false;
         }
 
-        m_initialSigns = new bool[3];
-        m_initialSigns[0] = m_velocity.x > 0.0f;
-        m_initialSigns[1] = m_velocity.y > 0.0f;
-        m_initialSigns[2] = m_velocity.z > 0.0f;
+        m_initialSigns = GetSigns(m_velocity);
+
+        return true;
+    }
+}
+
+public class Bounce : SceneActionBase
+{
+    private GameObject m_object;
+    private Vector3 m_currentVelocity;
+    private Vector3 m_bounceVelocity;
+    private Vector3 m_deceleration;
+    private Vector3 m_initialPosition;
+    private Axis m_bounceAxis;
+    private float m_decayRate = 0.5f;
+    private float m_maxBounces = 4.0f;
+    private float m_bounces = 0;
+    private float m_minDecay;
+    private bool m_bounceDirectionPositive = true;
+    private bool[] m_initialVelocitySign;
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        m_object.transform.position += m_currentVelocity * Time.deltaTime;
+        m_currentVelocity -= m_deceleration * Time.deltaTime;
+
+        //Prevent acceleration in opposite direction for non bounce axis
+        for(int i = 0; i < 3; i++)
+        {
+            if(i == (int)m_bounceAxis)
+            {
+                continue;
+            }
+
+            m_currentVelocity[i] = m_initialVelocitySign[i] ? Mathf.Max(m_currentVelocity[i], 0.0f) : Mathf.Min(m_currentVelocity[i], 0.0f);
+        }
+
+        //should bounce
+        if((m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.01f) || 
+               (!m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.01f))
+        {
+            Vector3 curPosition = m_object.transform.position;
+            curPosition[(int)m_bounceAxis] = m_initialPosition[(int)m_bounceAxis];
+            m_object.transform.position = curPosition;
+
+            if(m_bounces >= m_maxBounces)
+            {
+                return true;
+            }
+
+            m_bounces++;
+
+            m_currentVelocity += m_bounceVelocity;
+            m_bounceVelocity *= m_decayRate;
+        }
+
+        return false;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        TryParseObject(parameters[0], out m_object);
+        m_initialPosition = m_object.transform.position;
+
+        TryParseVector(parameters[1], out m_currentVelocity);
+
+        TryParseVector(parameters[2], out m_deceleration);
+        TryParseAxis(parameters[3], out m_bounceAxis);
+
+        m_bounceDirectionPositive = m_deceleration[(int)m_bounceAxis] > 0.0f;
+        m_initialVelocitySign = GetSigns(m_currentVelocity);
+        Vector3 bounceDir = new Vector3();
+        bounceDir[(int)m_bounceAxis] = 0.5f;
+        m_bounceVelocity = bounceDir * m_currentVelocity[(int)m_bounceAxis];
+
+        TryParseFloat(parameters[4], out m_decayRate);
+        
+        TryParseFloat(parameters[5], out m_maxBounces);        
 
         return true;
     }
@@ -531,6 +727,8 @@ public class SceneSystem : MonoBehaviour
 
     private List<SceneThread> m_threads;
     private List<SceneThread> m_threads_to_push = new List<SceneThread>();
+
+    public GameObject DamageNumberPrefab;
 
     private SceneSystem()
     {
@@ -656,6 +854,11 @@ public class SceneSystem : MonoBehaviour
         return true;
     }
 
+    public bool ExecuteActionSequence(string actions, SceneThread.ThreadCompleted callback = null)
+    {
+        return ExecuteActionSequence(actions.Split('|'), callback);
+    }
+
     public bool ExecuteAction(string actionToParse, SceneThread.ThreadCompleted callback = null)
     {
         SceneActionBase action;
@@ -700,7 +903,13 @@ public class SceneSystem : MonoBehaviour
             case "MoveArc":
                 action = new MoveArc();
                 break;
-            
+            case "StorePosition":
+                action = new StorePosition();
+                break;
+            case "Bounce":
+                action = new Bounce();
+                break;
+
             case "BanditSpawnAndAttack":
                 action = new BanditSpawnAndAttack();
                 break;
