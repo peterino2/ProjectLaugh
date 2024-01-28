@@ -264,6 +264,7 @@ public class DialogueSystem : MonoBehaviour
             monster.attackOne();
             playerHealth.Value -= 0.5f;
             onPlayerDamagedEvent.Raise();
+            SceneSystem.Get().ExecuteActionSequence("SpawnDamageNumber;Player;428");
         }
     }
 

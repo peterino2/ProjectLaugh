@@ -63,8 +63,8 @@ MonoBehaviour:
     speaker: Guide2
     NodeId: 611415366
     choicesText: []
-    isMovement: 0
-    movementDescription: 
+    isMovement: 1
+    movementDescription: FadeIn;Bandit;1
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 5
