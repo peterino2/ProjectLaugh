@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Gym_Dialogue.unity
-    guid: 84d12432baf2a004890078696396c437
+    path: Assets/Scenes/MainMenu.unity
+    guid: efcecf4b93696a24daffaa44286046e1
+  - enabled: 1
+    path: Assets/Scenes/FirstScene_combat_gag.unity
+    guid: 102d79d8399d12a47be4620351404787
   m_configObjects: {}
