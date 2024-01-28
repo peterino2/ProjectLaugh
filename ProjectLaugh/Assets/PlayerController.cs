@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
+            // print("interacted");
             OnInteractInput();
         }
     }
@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
             var x = castCollisions[i].transform.gameObject.GetComponent<Interactable>();
             if (x != null)
             {
+                print("interacted");
                 x.OnInteract(gameObject);
             }
         }

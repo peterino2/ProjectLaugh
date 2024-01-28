@@ -3,6 +3,7 @@ using Dialogue;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using ScriptableObjectArchitecture;
 
 
 public class DialogueSystem : MonoBehaviour
@@ -34,6 +35,10 @@ public class DialogueSystem : MonoBehaviour
     private float timeTilNextChar = 0.0f;
 
     public bool isInSpecialEvent = false;
+
+    [SerializeField]
+    private AudioClipGameEvent _onSpeechAudioEvent = default(AudioClipGameEvent);
+
 
     private void Awake()
     {
@@ -147,7 +152,7 @@ public class DialogueSystem : MonoBehaviour
                 inDialogue = false;
                 return;
             }
-            
+            _onSpeechAudioEvent.Raise(); // Play Boops
             setDialogueNode(dialogueIndex);
         }
         else
