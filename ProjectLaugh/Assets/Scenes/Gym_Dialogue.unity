@@ -1368,7 +1368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8034980446928820224, guid: 7f3875a4d9f02714cb9415912886f397, type: 3}
       propertyPath: m_Name
-      value: AudioSource
+      value: DialogueAudioSource
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
