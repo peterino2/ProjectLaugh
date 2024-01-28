@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Reflection;
 using Dialogue.Gags;
-
+using TMPro;
 public enum Axis
 {
     X = 0,
@@ -181,6 +181,40 @@ public class InvalidAction : SceneActionBase
     }
 }
 
+public class DestroyObject : SceneActionBase
+{
+    private GameObject m_object;
+
+    public DestroyObject() { }
+
+    public DestroyObject(GameObject obj)
+    {
+        m_object = obj;
+    }
+
+    public override bool IsInstant()
+    {
+        return true;
+    }
+
+    public override bool Tick()
+    {
+        if (m_object)
+        {
+            GameObject.Destroy(m_object);
+            m_object = null;
+        }
+        return true;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        TryParseObject(parameters[0], out m_object);
+
+        return true;
+    }
+}
+
 public class StorePosition : SceneActionBase
 {
     public override bool IsInstant()
@@ -281,6 +315,9 @@ public class MoveTo : SceneActionBase
 
 public class SpawnDamageNumber : SceneActionBase
 {
+    Vector3 m_position;
+    string text;
+
     public override bool IsInstant()
     {
         return true;
@@ -288,16 +325,16 @@ public class SpawnDamageNumber : SceneActionBase
 
     public override bool Tick()
     {
-        return base.Tick();
+        SceneSystem.Get().SpawnDamageNumber(m_position, text);
+        return true;
     }
 
     public override bool TryParse(string[] parameters)
     {
-        Vector3 position;
-        TryParseVector(parameters[0], out position);
+        TryParseVector(parameters[0], out m_position);
 
-        
-        
+        text = parameters[1];
+
         return true;
     }
 }
@@ -577,6 +614,26 @@ public class Bounce : SceneActionBase
     private bool m_bounceDirectionPositive = true;
     private bool[] m_initialVelocitySign;
 
+    public Bounce() { }
+
+    public Bounce(GameObject obj, Vector3 vel, Vector3 decel, Axis axis, float decay, float nBounces)
+    {
+        m_object = obj;
+        m_initialPosition = m_object.transform.position;
+
+        m_currentVelocity = vel;
+        m_deceleration = decel;
+        m_bounceAxis = axis;
+        m_decayRate = decay;
+        m_bounces = nBounces;
+
+        m_bounceDirectionPositive = m_deceleration[(int)m_bounceAxis] > 0.0f;
+        m_initialVelocitySign = GetSigns(m_currentVelocity);
+        Vector3 bounceDir = new Vector3();
+        bounceDir[(int)m_bounceAxis] = 0.5f;
+        m_bounceVelocity = bounceDir * m_currentVelocity[(int)m_bounceAxis];
+    }
+
     public override bool IsInstant()
     {
         return false;
@@ -599,8 +656,8 @@ public class Bounce : SceneActionBase
         }
 
         //should bounce
-        if((m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.01f) || 
-               (!m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.01f))
+        if((m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.001f) || 
+               (!m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.001f))
         {
             Vector3 curPosition = m_object.transform.position;
             curPosition[(int)m_bounceAxis] = m_initialPosition[(int)m_bounceAxis];
@@ -874,6 +931,25 @@ public class SceneSystem : MonoBehaviour
         return false;
     }
 
+    public void SpawnDamageNumber(Vector3 position, string text)
+    {
+        GameObject obj = Instantiate(DamageNumberPrefab);
+
+        obj.transform.position = position;
+        obj.GetComponent<TextMesh>().text = text;
+
+        obj.SetActive(true);
+
+        List<SceneActionBase> actions = new List<SceneActionBase>();
+
+        actions.Add(new Bounce(obj, new Vector3(0.5f, 0.5f), new Vector3(0.5f, 0.75f), Axis.Y, 0.5f, 1));
+        
+        actions.Add(new DestroyObject(obj));
+
+        SceneThread thread = new SceneThread(actions, null);
+        m_threads_to_push.Add(thread);
+    }
+
     public bool ParseAction(string actionToParse, out SceneActionBase action)
     {
         if(actionToParse.Length < 1)
@@ -908,6 +984,9 @@ public class SceneSystem : MonoBehaviour
                 break;
             case "Bounce":
                 action = new Bounce();
+                break;
+            case "SpawnDamageNumber":
+                action = new SpawnDamageNumber();
                 break;
 
             case "BanditSpawnAndAttack":

@@ -14,7 +14,7 @@ public class SceneComponent : MonoBehaviour
     [SerializeField]
     private List<string> m_sceneTags = null;
 
-    private Vector3 m_savedPosition = INVALID_POSITION;
+    public Vector3 SavedPosition { get; set; }
 
     public bool HasTag(string tag)
     {
