@@ -220,7 +220,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5171454235618039744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   viewer: {fileID: 3647425704752539501}
+  inDialogue: 0
   displayText: {fileID: 7289454338388274886}
   speakerName: {fileID: 3566220180038120958}
   canvasRoot: {fileID: 8395404146217458577}
@@ -277,6 +278,10 @@ MonoBehaviour:
     SpeechBongs: []
   - SpeakerId: Molly
     DisplayName: Molly
+    DisplayImage: {fileID: 21300000, guid: 0ec36e37fa247d549bb44331f4abb7c8, type: 3}
+    SpeechBongs: []
+  - SpeakerId: Bandit
+    DisplayName: Bandit
     DisplayImage: {fileID: 21300000, guid: 0ec36e37fa247d549bb44331f4abb7c8, type: 3}
     SpeechBongs: []
   choicesCanvas: {fileID: 3464787548684804977}

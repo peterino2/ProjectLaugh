@@ -16,10 +16,13 @@ public class DialogueSystem : MonoBehaviour
     {
         return gDialogueSystem;
     }
-    
+
+    public bool inDialogue;
     public TextMeshProUGUI displayText; 
     public TextMeshProUGUI speakerName; 
     public Canvas canvasRoot;
+
+    public DialogueSession endSequenceDS;
     
     private DialogueSession activeDialogue;
 
@@ -44,6 +47,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void startDialogue(DialogueSession session)
     {
+        inDialogue = true;
         displayTextIndex = 0;
         if (session.NodesByName.Count != session.DialogueLines.Count)
         {
@@ -109,23 +113,33 @@ public class DialogueSystem : MonoBehaviour
 
         var choice = activeNode.choicesText[choiceID];
         var destination = choice.nodeRef;
+        
+        if (destination == "noref")
+        {
+            return;
+        }
 
         setDialogueNode(activeDialogue.NodesByName[destination].nodeIndex);
     }
 
     private float debounce = 0.2f;
     
-    public void forward()
-    {
+    public void forward(bool force=false)
+    { 
+        inDialogue = true;
         if (isInSpecialEvent)
         {
             return;
         }
         
         debounce = 0.2f;
-        if (displayTextIndex >= activeNode.displayText.Length)
+        if (displayTextIndex >= activeNode.displayText.Length || force)
         {
-            if (activeNode.choicesText.Count > 0)
+            if (force)
+            {
+                Debug.Log("Forwarding with force parameter");
+            }
+            if (activeNode.choicesText.Count > 0 && !force)
             {
                 return;
             }
@@ -135,6 +149,7 @@ public class DialogueSystem : MonoBehaviour
             if (dialogueIndex >= activeDialogue.DialogueLines.Count || activeNode.endDialogueAfter)
             {
                 hide();
+                inDialogue = false;
                 return;
             }
             _onSpeechAudioEvent.Raise(); // Play Boops
@@ -216,5 +231,12 @@ public class DialogueSystem : MonoBehaviour
     {
         isInSpecialEvent = true;
         Debug.Log("HANDLING SPECIAL EVENT " + eventString);
+    }
+
+    public void EndSequence()
+    {
+        Debug.Log("End Sequence Started...");
+        // fade to black,
+        // start the DS_EndSequence
     }
 }
