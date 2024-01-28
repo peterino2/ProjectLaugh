@@ -198,8 +198,17 @@ public class Wait : SceneActionBase
 
     public override bool Tick()
     {
+        DialogueSystem.Get().hide();
+        DialogueSystem.Get().isInSpecialEvent = true;
         m_timeRemaining -= Time.deltaTime;
+        Debug.Log(m_timeRemaining);
 
+        if (m_timeRemaining <= 0.0f)
+        {
+            DialogueSystem.Get().isInSpecialEvent = false;
+            DialogueSystem.Get().show();
+            DialogueSystem.Get().forward();
+        }
         return m_timeRemaining <= 0.0f;
     }
 

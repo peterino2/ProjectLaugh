@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
+  m_Name: DS_CombatGag
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - displayText: A new guy just showed up!
+    speaker: Guide1
+    NodeId: 1020534985
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 0
+  - displayText: Should we just send bob off on his merry way?
+    speaker: Guide1
+    NodeId: 315491872
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 1
+  - displayText: We should probably teach bob how combat works before we send him
+      off to defeat the demon king..
+    speaker: Guide2
+    NodeId: 169493449
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: Bob?
+    speaker: Guide1
+    NodeId: 302689889
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 3
+  - displayText: In combat??
+    speaker: Guide1
+    NodeId: 256181888
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 4
+  - displayText: This guy can't even hold a sword!
+    speaker: Guide1
+    NodeId: 1842937422
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 5
+  - displayText: He'll be fine we'll start him off with a training dummy.
+    speaker: Guide2
+    NodeId: 889519160
+    choicesText: []
+    isMovement: 1
+    movementDescription: SpawnTrainingDummy
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 6
+  - displayText: In Combat, each person takes one action per turn.
+    speaker: Guide2
+    NodeId: 1924808025
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 7
+  - displayText: LETS GO BOB, YOU START!
+    speaker: Guide2
+    NodeId: 1441547400
+    choicesText: []
+    isMovement: 1
+    movementDescription: StartBobCombatTurn;0
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 8
+  - displayText: W-wow bob...
+    speaker: Guide1
+    NodeId: 2137844470
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 9
+  - displayText: Select an attack!
+    speaker: System
+    NodeId: 1546480583
+    choicesText:
+    - choiceString: Tickle The Pickle
+      nodeRef: 1428163534
+    - choiceString: Knee Slap Zap
+      nodeRef: 1428163534
+    - choiceString: Giggle Jiggle Wiggle
+      nodeRef: 1428163534
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 10
+  - displayText: Bob Attacks!
+    speaker: System
+    NodeId: 1428163534
+    choicesText:
+    - choiceString: Tickle The Pickle
+      nodeRef: 
+    - choiceString: Knee Slap Zap
+      nodeRef: 
+    - choiceString: Giggle Jiggle Wiggle
+      nodeRef: 
+    isMovement: 1
+    movementDescription: PlayCombatAttack
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 11
+  - displayText: Your attack was so weak...
+    speaker: Guide1
+    NodeId: 1830507627
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 12
+  - displayText: I think it healed the target..
+    speaker: Guide1
+    NodeId: 1323891813
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 13
+  - displayText: I must admit, I did not know that was possible
+    speaker: Guide1
+    NodeId: 2031561014
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 14
+  - displayText: Ok now it's the dummy's turn.
+    speaker: Guide1
+    NodeId: 1639206816
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 15
+  - displayText: ...
+    speaker: Dummy
+    NodeId: 1455159282
+    choicesText: []
+    isMovement: 1
+    movementDescription: Wait;3
+    characterRate: 1
+    endDialogueAfter: 0
+    nodeIndex: 16
+  - displayText: Is...
+    speaker: Guide1
+    NodeId: 1597586078
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 4
+    endDialogueAfter: 0
+    nodeIndex: 17
+  - displayText: Is the dummy going to do anything?
+    speaker: Guide1
+    NodeId: 522710733
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 18

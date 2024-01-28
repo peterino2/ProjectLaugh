@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
-  m_Name: DS_Example
+  m_Name: DS_Startup
   m_EditorClassIdentifier: 
   DialogueLines:
   - displayText: Isekai'd?
@@ -26,7 +26,7 @@ MonoBehaviour:
     speaker: Guide1
     NodeId: 1621350716
     choicesText: []
-    isMovement: 1
+    isMovement: 0
     movementDescription: PlayerSetName
     characterRate: 30
     endDialogueAfter: 0
