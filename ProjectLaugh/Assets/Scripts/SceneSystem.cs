@@ -391,7 +391,7 @@ public class BanditSpawnAndAttack : SceneActionBase
             DialogueSystem.Get().handleSpecialEvent("BanditSpawnAndAttack");
             DialogueSystem.Get().isInSpecialEvent = false;
             DialogueSystem.Get().show();
-            DialogueSystem.Get().forward();
+            DialogueSystem.Get().forward(true);
         }
         return m_timeRemaining <= 0.0f;
     }
@@ -410,6 +410,9 @@ public class BanditSpawnAndAttack : SceneActionBase
 public class BanditBeatdown : SceneActionBase
 {
     private float m_timeRemaining = 0.0f;
+    private MonsterController m_monster;
+    private float m_cooldown;
+    private float m_curCooldown;
 
     public BanditBeatdown()
     {
@@ -425,6 +428,14 @@ public class BanditBeatdown : SceneActionBase
         DialogueSystem.Get().isInSpecialEvent = true;
         DialogueSystem.Get().hide();
         m_timeRemaining -= Time.deltaTime;
+        m_curCooldown -= Time.deltaTime;
+
+        if(m_curCooldown <= 0.0f)
+        {
+            m_curCooldown = m_cooldown;
+            m_monster.attackOne();
+            SceneSystem.Get().ExecuteActionSequence("SpawnDamageNumber;Player;"+ (int)Random.Range(421, 999));
+        }
         
         // Start beatdown here.
         bool rv = m_timeRemaining <= 0.0f;
@@ -446,13 +457,27 @@ public class BanditBeatdown : SceneActionBase
             return false;
         }
 
-        return TryParseFloat(parameters[0].Trim(), out m_timeRemaining);
+        GameObject obj;
+        TryParseObject(parameters[0].Trim(), out obj);
+
+        m_monster = obj.GetComponent<MonsterController>();
+
+        //var monster = FindObjectOfType<MonsterController>();
+        // monster.attackOne();
+
+        //SceneSystem.Get().ExecuteActionSequence("SpawnDamageNumber;Player;428");
+        TryParseFloat(parameters[1].Trim(), out m_cooldown);
+        m_curCooldown = m_cooldown;
+
+        return TryParseFloat(parameters[2].Trim(), out m_timeRemaining);
     }
 }
 
 public class BanditSuckerPunch : SceneActionBase
 {
     private float m_timeRemaining = 0.0f;
+    private MonsterController m_monster;
+    private bool m_attacked = false;
 
     public BanditSuckerPunch()
     {
@@ -468,6 +493,13 @@ public class BanditSuckerPunch : SceneActionBase
         DialogueSystem.Get().isInSpecialEvent = true;
         m_timeRemaining -= Time.deltaTime;
         Debug.Log( "sucker " + m_timeRemaining.ToString());
+
+        if(!m_attacked)
+        {
+            SceneSystem.Get().ExecuteActionSequence("SpawnDamageNumber;Player;761");
+            m_monster.attackOne();
+            m_attacked = true;
+        }
         
         // start playing bandit sucker punch animation here
 
@@ -487,8 +519,11 @@ public class BanditSuckerPunch : SceneActionBase
         {
             return false;
         }
+        GameObject obj;
+        TryParseObject(parameters[0].Trim(), out obj);
+        m_monster = obj.GetComponent<MonsterController>();
 
-        return TryParseFloat(parameters[0].Trim(), out m_timeRemaining);
+        return TryParseFloat(parameters[1].Trim(), out m_timeRemaining);
     }
 }
 
