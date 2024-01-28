@@ -73,7 +73,7 @@ MonoBehaviour:
     NodeId: 889519160
     choicesText: []
     isMovement: 1
-    movementDescription: SpawnTrainingDummy
+    movementDescription: FadeIn;Dummy;1
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 6
