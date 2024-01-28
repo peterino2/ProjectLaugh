@@ -701,6 +701,72 @@ public class Bounce : SceneActionBase
     }
 }
 
+public class FadeIn : SceneActionBase
+{
+    SpriteRenderer m_renderer;
+    float m_rate;
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        Color c = m_renderer.color;
+
+        c.a += Mathf.Min(m_rate * Time.deltaTime, 1.0f);
+        m_renderer.color = c;
+
+        return c.a >= 1.0f;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        GameObject obj;
+        TryParseObject(parameters[0], out obj);
+
+        m_renderer = obj.GetComponent<SpriteRenderer>();
+
+        TryParseFloat(parameters[1], out m_rate);
+
+        return true;
+    }
+}
+
+public class FadeOut : SceneActionBase
+{
+    SpriteRenderer m_renderer;
+    float m_rate;
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        Color c = m_renderer.color;
+
+        c.a -= Mathf.Max(m_rate * Time.deltaTime, 0.0f);
+        m_renderer.color = c;
+
+        return c.a <= 0.0f;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        GameObject obj;
+        TryParseObject(parameters[0], out obj);
+
+        m_renderer = obj.GetComponent<SpriteRenderer>();
+
+        TryParseFloat(parameters[1], out m_rate);
+
+        return true;
+    }
+}
+
 public class SceneThread
 {
     public delegate void ThreadCompleted();
@@ -987,6 +1053,12 @@ public class SceneSystem : MonoBehaviour
                 break;
             case "SpawnDamageNumber":
                 action = new SpawnDamageNumber();
+                break;
+            case "FadeIn":
+                action = new FadeIn();
+                break;
+            case "FadeOut":
+                action = new FadeOut();
                 break;
 
             case "BanditSpawnAndAttack":
