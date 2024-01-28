@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Reflection;
+using Dialogue.Gags;
 
 public abstract class SceneActionBase
 {
@@ -68,9 +69,45 @@ public abstract class SceneActionBase
         return true;
     }
 
+    public static bool TryParseBool(string toParse, out bool value)
+    {
+        try
+        {
+            value = bool.Parse(toParse);
+            return true;
+        }
+        catch (System.Exception)
+        {
+            LogParseError(toParse, "bool");
+        }
+
+        value = false;
+        return false;
+    }
+
+    public static bool TryParseObject(string toParse, out GameObject value)
+    {
+        value = SceneSystem.Get().GetSceneObject(toParse);
+
+        return value != null;
+    }
+
     private static void LogParseError(string raw, string type)
     {
         Debug.LogError("SceneAction: Unable to parse \"" + raw + "\" as \"" + type + "\"");
+    }
+}
+
+public class BlankAction : SceneActionBase
+{
+    public override bool IsInstant()
+    {
+        return true;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        return true;
     }
 }
 
@@ -83,7 +120,6 @@ public class InvalidAction : SceneActionBase
 
     public override bool TryParse(string[] parameters)
     {
-        Debug.LogError("SceneAction: Invalid Action Created");
         return false;
     }
 }
@@ -130,28 +166,158 @@ public class MoveTo : SceneActionBase
             return false;
         }
 
-        GameObject objectToMove = SceneSystem.Get().GetSceneObject(parameters[0].Trim());
-
-        if(!objectToMove)
+        if(!TryParseObject(parameters[0].Trim(), out m_objectToMove))
         {
             return false;
         }
 
-        Vector3 destination;
-        if(!TryParseVector(parameters[1], out destination))
+        if(!TryParseVector(parameters[1].Trim(), out m_destination))
         {
             return false;
         }
 
-        float velocity;
-        if(!TryParseFloat(parameters[2], out velocity))
+        if(!TryParseFloat(parameters[2].Trim(), out m_velocity))
         {
             return false;
         }
 
-        m_objectToMove = objectToMove;
-        m_destination = destination;
-        m_velocity = velocity;
+        return true;
+    }
+}
+
+public class Wait : SceneActionBase
+{
+    private float m_timeRemaining = 0.0f;
+
+    public Wait() { }
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        DialogueSystem.Get().hide();
+        DialogueSystem.Get().isInSpecialEvent = true;
+        m_timeRemaining -= Time.deltaTime;
+        Debug.Log(m_timeRemaining);
+
+        if (m_timeRemaining <= 0.0f)
+        {
+            DialogueSystem.Get().isInSpecialEvent = false;
+            DialogueSystem.Get().show();
+            DialogueSystem.Get().forward();
+        }
+        return m_timeRemaining <= 0.0f;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        if(parameters.Length < 1)
+        {
+            return false;
+        }
+
+        return TryParseFloat(parameters[0].Trim(), out m_timeRemaining);
+    }
+}
+
+public class SetActive : SceneActionBase
+{
+    private GameObject m_object = null;
+    private bool m_status = false;
+
+    public override bool IsInstant()
+    {
+        return true;
+    }
+
+    public override bool Tick()
+    {
+        if (m_object)
+        {
+            m_object.SetActive(m_status);
+        }
+        return true;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        if(parameters.Length < 2)
+        {
+            return false;
+        }
+
+        if(!TryParseObject(parameters[0].Trim(), out m_object))
+        {
+            return false;
+        }
+
+        return TryParseBool(parameters[1].Trim(), out m_status);
+    }
+}
+
+public class MoveArc : SceneActionBase
+{
+    private GameObject m_object = null;
+    private Vector3 m_velocity;
+    private Vector3 m_deceleration;
+
+    private bool[] m_initialSigns;  //true for positive (min 0), false for negative (max 0)
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        if (!m_object)
+        {
+            return true;
+        }
+
+        m_object.transform.position += m_velocity;
+
+        m_velocity -= m_deceleration;
+
+        m_velocity.x = m_initialSigns[0] ? Mathf.Min(0, m_velocity.x) : Mathf.Max(0, m_velocity.x);
+        m_velocity.y = m_initialSigns[1] ? Mathf.Min(0, m_velocity.y) : Mathf.Max(0, m_velocity.y);
+        m_velocity.z = m_initialSigns[2] ? Mathf.Min(0, m_velocity.z) : Mathf.Max(0, m_velocity.z);
+
+        return m_velocity.magnitude == 0.0f;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        if(parameters.Length < 3)
+        {
+            return false;
+        }
+
+        if(!TryParseObject(parameters[0].Trim(), out m_object))
+        {
+            return false;
+        }
+
+        if(!TryParseVector(parameters[1].Trim(), out m_velocity))
+        {
+            m_object = null;
+            return false;
+        }
+
+        if(!TryParseVector(parameters[2].Trim(), out m_deceleration))
+        {
+            m_object = null;
+            return false;
+        }
+
+        m_initialSigns = new bool[3];
+        m_initialSigns[0] = m_velocity.x > 0.0f;
+        m_initialSigns[1] = m_velocity.y > 0.0f;
+        m_initialSigns[2] = m_velocity.z > 0.0f;
+
         return true;
     }
 }
@@ -166,17 +332,27 @@ public class SceneThread
 
     private int m_currentLine = 0;
 
-    public SceneThread(SceneActionBase action)
+    public SceneThread(SceneActionBase action, ThreadCompleted callback)
     {
         m_executionLines = new List<SceneActionBase>();
         m_executionLines.Add(action);
         m_currentLine = 0;
+
+        if(callback != null)
+        {
+            ThreadCompletedEvent += callback;
+        }
     }
 
-    public SceneThread(List<SceneActionBase> executionLines)
+    public SceneThread(List<SceneActionBase> executionLines, ThreadCompleted callback)
     {
         m_currentLine = 0;
         m_executionLines = executionLines;
+
+        if (callback != null)
+        {
+            ThreadCompletedEvent += callback;
+        }
     }
 
     public bool Tick()
@@ -319,19 +495,41 @@ public class SceneSystem : MonoBehaviour
         return m_sceneComponents[sceneObjectName];
     }
 
+    public bool ExecuteActionSequence(string[] actionsToParse, SceneThread.ThreadCompleted callback = null)
+    {
+        if(actionsToParse.Length < 1)
+        {
+            return false;
+        }
+
+        List<SceneActionBase> actions = new List<SceneActionBase>();
+
+        foreach(string actionToParse in actionsToParse)
+        {
+            SceneActionBase action;
+
+            if(ParseAction(actionToParse, out action))
+            {
+                actions.Add(action);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        SceneThread thread = new SceneThread(actions, callback);
+        m_threads.Add(thread);
+        return true;
+    }
+
     public bool ExecuteAction(string actionToParse, SceneThread.ThreadCompleted callback = null)
     {
         SceneActionBase action;
         
         if(ParseAction(actionToParse, out action))
         {
-            SceneThread thread = new SceneThread(action);
-
-            if (callback != null)
-            {
-                thread.ThreadCompletedEvent += callback;
-            }
-
+            SceneThread thread = new SceneThread(action, callback);
             m_threads.Add(thread);  //Maybe not thread safe but whatever
             
             return true;
@@ -354,20 +552,37 @@ public class SceneSystem : MonoBehaviour
 
         parameters.RemoveAt(0);
 
+        
         switch(actionType)
         {
             case "MoveTo":
                 action = new MoveTo();
-                if(!action.TryParse(parameters.ToArray()))
-                {
-                    action = new InvalidAction();
-                    return false;
-                }
                 break;
+            case "Wait":
+                action = new Wait();
+                break;
+            case "SetActive":
+                action = new SetActive();
+                break;
+            case "MoveArc":
+                action = new MoveArc();
+                break;
+            
+            case "PlayerSetName":
+                GagPlayerNameEntry.Get().StartGag();
+                action = new BlankAction();
+                break;
+            
             default:
                 Debug.LogError("SceneSystem: Unable to parse action \"" + actionToParse + "\"");
                 action = new InvalidAction();
                 return false;
+        }
+
+        if (!action.TryParse(parameters.ToArray()))
+        {
+            action = new InvalidAction();
+            return false;
         }
 
         return true;

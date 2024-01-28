@@ -32,6 +32,12 @@ namespace Dialogue
 
         public bool isMovement;
         public string movementDescription;
+        public float characterRate = 20;
+
+        public bool endDialogueAfter = false;
+
+        // do not edit, should auto update.
+        public int nodeIndex = 0;
     }
     
     [CreateAssetMenu(fileName = "DS_", menuName = "DialogueSession", order = 0)]
@@ -47,6 +53,7 @@ namespace Dialogue
             NodesByName.Clear();
             foreach (var x in DialogueLines)
             {
+                x.nodeIndex = NodesByName.Count;
                 if (NodesByName.ContainsKey(x.NodeId) || x.NodeId == "")
                 {
                     x.NodeId = Random.Range(0, Int32.MaxValue).ToString();

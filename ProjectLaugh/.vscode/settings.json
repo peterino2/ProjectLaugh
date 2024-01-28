@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ProjectLaugh.sln"
+    "dotnet.defaultSolution": "ProjectLaugh.sln",
+    "dotnet.preferCSharpExtension": true
 }

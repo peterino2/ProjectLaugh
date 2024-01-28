@@ -9,7 +9,8 @@ namespace Dialogue
     {
         [SerializeField] public string SpeakerId;
         [SerializeField] public string DisplayName;
-        [SerializeField] Texture2D DisplayImage;
+        [SerializeField] public Sprite DisplayImage;
+        [SerializeField] public List<AudioClip> SpeechBongs;
     }
     
     [CreateAssetMenu(fileName = "SpeakerDatabase", menuName = "SpeakerDB", order = 0)]
@@ -18,10 +19,14 @@ namespace Dialogue
         [SerializeField]
         public List<SpeakerEntry> speakers;
 
-        [SerializeField]
-        public Dictionary<string, SpeakerEntry> Entries;
-        private void OnValidate()
+        public Dictionary<string, SpeakerEntry> speakersById = new Dictionary<string, SpeakerEntry>();
+
+        public void OnValidate()
         {
+            foreach (var speaker in speakers)
+            {
+                speakersById[speaker.SpeakerId] = speaker;
+            }
         }
     }
 }

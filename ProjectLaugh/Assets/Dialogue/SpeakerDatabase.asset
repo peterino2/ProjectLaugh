@@ -12,3 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: SpeakerDatabase
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:SpeakerDB
+  speakers:
+  - SpeakerId: Guide1
+    DisplayName: Guide no.1
+    DisplayImage: {fileID: 21300000, guid: adec0cf55a8489946a337c7a15c4fe38, type: 3}
+    SpeechBongs: []
+  - SpeakerId: Guide2
+    DisplayName: Guide no.2
+    DisplayImage: {fileID: 21300000, guid: 6fef1defdd9debb449b4b03e9bf8de4b, type: 3}
+    SpeechBongs: []
+  - SpeakerId: Dummy
+    DisplayName: Dummy
+    DisplayImage: {fileID: 21300000, guid: 0ec36e37fa247d549bb44331f4abb7c8, type: 3}
+    SpeechBongs: []
+  - SpeakerId: System
+    DisplayName: 
+    DisplayImage: {fileID: 21300000, guid: fe587db6430a93240a741a6eba7dcdc2, type: 3}
+    SpeechBongs: []
+  - SpeakerId: Molly
+    DisplayName: Molly
+    DisplayImage: {fileID: 21300000, guid: 0ec36e37fa247d549bb44331f4abb7c8, type: 3}
+    SpeechBongs: []
