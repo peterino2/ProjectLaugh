@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementType: 0
   moveSpeed: 1
-  positionOne: {x: -6.7, y: 3, z: 0}
+  positionOne: {x: 8, y: 11.5, z: 0}
   positionTwo: {x: 0, y: 6.36, z: 0}
   positionThree: {x: 0, y: 0, z: 0}
   interactionFilter:
