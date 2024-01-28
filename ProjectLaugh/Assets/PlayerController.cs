@@ -11,17 +11,22 @@ public class PlayerController : MonoBehaviour
     {
         RigidbodyVelocity,
         RigidbodyAddForce,
-        VectorMoveToward,
-        TransformTranslate,
-        DirectPositionChange
+        Teleport
     }
+
+    
     [SerializeField]
     private MovementType movementType = MovementType.RigidbodyVelocity;
 
     [SerializeField]
     private float moveSpeed = 1f;
+    public Vector3 positionOne = new Vector3(0, 0, 0);
+    public Vector3 positionTwo = new Vector3(0, 0, 0);
+    public Vector3 positionThree = new Vector3(0, 0, 0);
+
+    private List<Vector3> teleportList = new List<Vector3>();
     // public float collisionOffset = 0.05f;
-    public MagicAttack magicAttack;
+    // public MagicAttack magicAttack;
     Vector2 movementInput;
     Rigidbody2D rb;
     Animator animator;
@@ -30,13 +35,16 @@ public class PlayerController : MonoBehaviour
     public ContactFilter2D interactionFilter;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     // bool canMove = true;
-    // bool isAttacking = false;
+    bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        teleportList.Add(positionOne);
+        teleportList.Add(positionTwo);
+        teleportList.Add(positionThree);
     }
 
     public float interactionDistance;
@@ -48,23 +56,27 @@ public class PlayerController : MonoBehaviour
         movementInput.y = Input.GetAxisRaw("Vertical");
 
 
-        if(movementType == MovementType.VectorMoveToward)
-        {
-            VectorMoveTowards();
-        }
+        // if(movementType == MovementType.VectorMoveToward)
+        // {
+        //     VectorMoveTowards();
+        // }
 
-        if(movementType == MovementType.TransformTranslate)
-        {
-            TransformTranslate();
-        }
+        // if(movementType == MovementType.TransformTranslate)
+        // {
+        //     TransformTranslate();
+        // }
 
-        if(movementType == MovementType.DirectPositionChange)
-        {
-            PositionChange();
-        }
+        // if(movementType == MovementType.DirectPositionChange)
+        // {
+        //     PositionChange();
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Space) == true) {
+        if (Input.GetKeyDown(KeyCode.E) == true && !isAttacking) {
             animator.SetTrigger("magicAttack");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) == true && !isAttacking) {
+            Teleport(0);
         }
         
         int count = rb.Cast(
@@ -76,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             OnInteractInput();
         }
     }
@@ -92,23 +105,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void VectorMoveTowards()
-    {
-        transform.position = Vector2.MoveTowards(transform.position,
-            transform.position + (Vector3)movementInput, moveSpeed * Time.deltaTime);
-    }
-
-
-    private void TransformTranslate()
-    {
-        transform.Translate(movementInput * moveSpeed * Time.deltaTime);
-    }
-
-
-    private void PositionChange()
-    {
-        transform.position += (Vector3)movementInput * Time.deltaTime * moveSpeed;
-    }
+    
     private void FixedUpdate()
     {
 
@@ -133,17 +130,13 @@ public class PlayerController : MonoBehaviour
         //         }
         //     }
 
-        //     animator.SetBool("isMoving", success);
+        //     
             
         // } else {
         //     animator.SetBool("isMoving", false);
         // }
 
-        // if (movementInput.x < 0) {
-        //     spriteRenderer.flipX = true;
-        // } else if (movementInput.x > 0) {
-        //     spriteRenderer.flipX = false;
-        // }
+
         // }
 
     }
@@ -151,6 +144,17 @@ public class PlayerController : MonoBehaviour
     private void RigidbodyVelocity()
     {
         rb.velocity = movementInput.normalized * moveSpeed;
+        if (movementInput.x < 0) {
+            spriteRenderer.flipX = true;
+            animator.SetBool("isMoving", true);
+        } else if (movementInput.x > 0 ) {
+            spriteRenderer.flipX = false;
+            animator.SetBool("isMoving", true);
+        } else if (movementInput.y != 0){
+            animator.SetBool("isMoving", true);
+        } else {
+            animator.SetBool("isMoving", false);
+        }
     }
 
 
@@ -158,6 +162,24 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(movementInput * moveSpeed, ForceMode2D.Impulse);
     }
+
+    // private void VectorMoveTowards()
+    // {
+    //     transform.position = Vector2.MoveTowards(transform.position,
+    //         transform.position + (Vector3)movementInput, moveSpeed * Time.deltaTime);
+    // }
+
+
+    // private void TransformTranslate()
+    // {
+    //     transform.Translate(movementInput * moveSpeed * Time.deltaTime);
+    // }
+
+
+    // private void PositionChange()
+    // {
+    //     transform.position += (Vector3)movementInput * Time.deltaTime * moveSpeed;
+    // }
 
     // private bool TryMove(Vector2 direction) {
     //     int count = rb.Cast(
@@ -192,9 +214,19 @@ public class PlayerController : MonoBehaviour
     //     canMove = true;
     // }
 
-    // public void Attack(){
-    //     isAttacking = !isAttacking;
-    // }
+    public void Attack(){
+        isAttacking = true;
+
+    }
+
+    public void StopAttack() {
+        isAttacking = false;
+   
+    }
+
+    public void Teleport(int positionNumber) {
+        gameObject.transform.position = teleportList[positionNumber];
+    }
 
     // public void MagicAttack() {
     //     LockMovement();
