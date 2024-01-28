@@ -237,3 +237,12 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 23
+  - displayText: 
+    speaker: Guide2
+    NodeId: 1726352355
+    choicesText: []
+    isMovement: 1
+    movementDescription: StartCombat2
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 24
