@@ -1,0 +1,176 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
+  m_Name: DS_Combat_Part2
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - displayText: Ok. We're going to go ahead and remove the Dummy
+    speaker: Guide1
+    NodeId: 963482094
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 0
+  - displayText: And Instead!
+    speaker: Guide1
+    NodeId: 1396167105
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 50
+    endDialogueAfter: 0
+    nodeIndex: 1
+  - displayText: We're going to get you to fight against a real live bandit!
+    speaker: Guide1
+    NodeId: 1798946303
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: Yeah this guy will actually be able to do something so you can actually
+      win!
+    speaker: Guide2
+    NodeId: 1108934630
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 3
+  - displayText: Yeah, getting softlocked sucks
+    speaker: Guide1
+    NodeId: 19170033
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 4
+  - displayText: Alright, here comes the bandit!
+    speaker: Guide2
+    NodeId: 611415366
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 5
+  - displayText: He's pretty fast so he'll get the first turn.
+    speaker: Guide2
+    NodeId: 1984562122
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 6
+  - displayText: Here.
+    speaker: Guide2
+    NodeId: 1276544958
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 7
+  - displayText: He.
+    speaker: Guide2
+    NodeId: 1770041293
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 8
+  - displayText: Comes!
+    speaker: Guide2
+    NodeId: 1190411519
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 9
+  - displayText: ...
+    speaker: System
+    NodeId: 1611021218
+    choicesText: []
+    isMovement: 1
+    movementDescription: BanditSpawnAndAttack
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 10
+  - displayText: Ouch you're hurt bob, you gotta make sure you select the right attack
+      to defeat him in one-
+    speaker: Guide1
+    NodeId: 408253296
+    choicesText:
+    - choiceString: Anti-bandit strike
+      nodeRef: noref
+    - choiceString: Super duper mega punch
+      nodeRef: noref
+    - choiceString: Helicopter
+      nodeRef: noref
+    isMovement: 1
+    movementDescription: BanditSuckerPunch
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 11
+  - displayText: What just happened?
+    speaker: Guide2
+    NodeId: 1959217520
+    choicesText: []
+    isMovement: 1
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 12
+  - displayText: What, you think this is some kind of turn based RPG?
+    speaker: Bandit
+    NodeId: 330537178
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 13
+  - displayText: Nah kid! This is REAL LIFE!
+    speaker: Bandit
+    NodeId: 1111058981
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 14
+  - displayText: There ain't no turns in real life!
+    speaker: Bandit
+    NodeId: 1900306402
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 15
+  - displayText: Bandit beats the shit out of bob
+    speaker: Bandit
+    NodeId: 1065747569
+    choicesText: []
+    isMovement: 0
+    movementDescription: BanditBeatdown
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 16

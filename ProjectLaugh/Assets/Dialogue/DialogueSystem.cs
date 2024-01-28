@@ -15,7 +15,8 @@ public class DialogueSystem : MonoBehaviour
     {
         return gDialogueSystem;
     }
-    
+
+    public bool inDialogue;
     public TextMeshProUGUI displayText; 
     public TextMeshProUGUI speakerName; 
     public Canvas canvasRoot;
@@ -39,6 +40,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void startDialogue(DialogueSession session)
     {
+        inDialogue = true;
         displayTextIndex = 0;
         if (session.NodesByName.Count != session.DialogueLines.Count)
         {
@@ -104,6 +106,11 @@ public class DialogueSystem : MonoBehaviour
 
         var choice = activeNode.choicesText[choiceID];
         var destination = choice.nodeRef;
+        
+        if (destination == "noref")
+        {
+            return;
+        }
 
         setDialogueNode(activeDialogue.NodesByName[destination].nodeIndex);
     }
@@ -111,7 +118,8 @@ public class DialogueSystem : MonoBehaviour
     private float debounce = 0.2f;
     
     public void forward()
-    {
+    { 
+        inDialogue = true;
         if (isInSpecialEvent)
         {
             return;
@@ -122,6 +130,7 @@ public class DialogueSystem : MonoBehaviour
         {
             if (activeNode.choicesText.Count > 0)
             {
+                inDialogue = false;
                 return;
             }
             choicesCanvas.SetActive(false);
