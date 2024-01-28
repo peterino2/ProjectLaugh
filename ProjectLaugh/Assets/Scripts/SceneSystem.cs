@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Reflection;
+using Dialogue;
 using Dialogue.Gags;
 using TMPro;
 public enum Axis
@@ -1097,8 +1098,19 @@ public class SceneSystem : MonoBehaviour
                 action = new BanditSuckerPunch();
                 break;
             
+            case "StartCombat2":
+                action = new BlankAction();
+                DialogueSystem.Get().startDialogue(Combat2);
+                break;
+            
             case "BanditBeatdown":
                 action = new BanditBeatdown();
+                break;
+            
+            case "FinishEpilogue":
+                action = new BlankAction();
+                DialogueSystem.Get().hide();
+                SceneManager.LoadScene("Ending");
                 break;
             
             case "EndSequence":
@@ -1125,4 +1137,6 @@ public class SceneSystem : MonoBehaviour
 
         return true;
     }
+    
+    public DialogueSession Combat2;
 }

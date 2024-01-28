@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
+  m_Name: DS_Epilogue
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - displayText: Huh
+    speaker: Guide1
+    NodeId: 1364589734
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 0
+  - displayText: I thought we ironed out all the kinks in the turnbased combat system
+    speaker: Guide1
+    NodeId: 1812814446
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 1
+  - displayText: Oh well, I think this might be the end for Bob.
+    speaker: Guide1
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: We're really bad at this whole 'guiding' thing.
+    speaker: Guide2
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: What happens now?
+    speaker: Guide2
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: Dunno. I think he's just dead
+    speaker: Guide1
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: Look!
+    speaker: Guide2
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: There goes his soul! searching for another life!
+    speaker: Guide2
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: Maybe a life where he delivers jokes instead of being one.
+    speaker: Guide1
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: Wherever you end up Bob, I want you to know...
+    speaker: Guide2
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: You certainly made me laugh
+    speaker: Guide2
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 0
+    movementDescription: FinishEpilogue
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: plays ending
+    speaker: Guide2
+    NodeId: 912241332
+    choicesText: []
+    isMovement: 1
+    movementDescription: FinishEpilogue
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2

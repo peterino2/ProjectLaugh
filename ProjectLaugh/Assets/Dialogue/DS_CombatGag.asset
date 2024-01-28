@@ -170,7 +170,7 @@ MonoBehaviour:
     choicesText: []
     isMovement: 1
     movementDescription: Wait;3
-    characterRate: 1
+    characterRate: 10
     endDialogueAfter: 0
     nodeIndex: 16
   - displayText: Is...
@@ -179,7 +179,7 @@ MonoBehaviour:
     choicesText: []
     isMovement: 0
     movementDescription: 
-    characterRate: 4
+    characterRate: 10
     endDialogueAfter: 0
     nodeIndex: 17
   - displayText: Is the dummy going to do anything?
@@ -237,3 +237,12 @@ MonoBehaviour:
     characterRate: 30
     endDialogueAfter: 0
     nodeIndex: 23
+  - displayText: 
+    speaker: Guide2
+    NodeId: 1726352355
+    choicesText: []
+    isMovement: 1
+    movementDescription: StartCombat2
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 24
