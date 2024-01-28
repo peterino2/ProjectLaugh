@@ -268,9 +268,20 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
+    public DialogueSession EpilogueSession;
+    public StoryStart ss;
+
+    public void Defade()
+    {
+        ss.FadeIn();
+    }
+
     public void EndSequence()
     {
         Debug.Log("End Sequence Started...");
+
+        ss.StartFadeToBlack();
+        StartCoroutine(DelayThenStartSession(EpilogueSession));
         // fade to black,
         // start the DS_EndSequence
     }
