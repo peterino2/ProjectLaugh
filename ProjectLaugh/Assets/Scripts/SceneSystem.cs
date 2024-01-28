@@ -185,6 +185,132 @@ public class MoveTo : SceneActionBase
     }
 }
 
+public class BanditSpawnAndAttack : SceneActionBase
+{
+    private float m_timeRemaining = 0.0f;
+
+    public BanditSpawnAndAttack()
+    {
+    }
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        DialogueSystem.Get().hide();
+        DialogueSystem.Get().isInSpecialEvent = true;
+        m_timeRemaining -= Time.deltaTime;
+        Debug.Log(m_timeRemaining);
+        // play bandit attack animation
+
+        if (m_timeRemaining <= 0.0f)
+        {
+            DialogueSystem.Get().isInSpecialEvent = false;
+            DialogueSystem.Get().show();
+            DialogueSystem.Get().forward();
+        }
+        return m_timeRemaining <= 0.0f;
+    }
+    
+    public override bool TryParse(string[] parameters)
+    {
+        if(parameters.Length < 1)
+        {
+            return false;
+        }
+
+        return TryParseFloat(parameters[0].Trim(), out m_timeRemaining);
+    }
+}
+
+public class BanditBeatdown : SceneActionBase
+{
+    private float m_timeRemaining = 0.0f;
+
+    public BanditBeatdown()
+    {
+    }
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        DialogueSystem.Get().isInSpecialEvent = true;
+        DialogueSystem.Get().hide();
+        m_timeRemaining -= Time.deltaTime;
+        
+        // Start beatdown here.
+        bool rv = m_timeRemaining <= 0.0f;
+        if (rv)
+        {
+            DialogueSystem.Get().isInSpecialEvent = false;
+            DialogueSystem.Get().show();
+            DialogueSystem.Get().forward(true);
+            DialogueSystem.Get().EndSequence();
+        }
+
+        return rv;
+    }
+    
+    public override bool TryParse(string[] parameters)
+    {
+        if(parameters.Length < 1)
+        {
+            return false;
+        }
+
+        return TryParseFloat(parameters[0].Trim(), out m_timeRemaining);
+    }
+}
+
+public class BanditSuckerPunch : SceneActionBase
+{
+    private float m_timeRemaining = 0.0f;
+
+    public BanditSuckerPunch()
+    {
+    }
+
+    public override bool IsInstant()
+    {
+        return false;
+    }
+
+    public override bool Tick()
+    {
+        DialogueSystem.Get().isInSpecialEvent = true;
+        m_timeRemaining -= Time.deltaTime;
+        Debug.Log( "sucker " + m_timeRemaining.ToString());
+        
+        // start playing bandit sucker punch animation here
+
+        bool rv = m_timeRemaining <= 0.0f;
+        if (rv)
+        {
+            DialogueSystem.Get().isInSpecialEvent = false;
+            DialogueSystem.Get().forward(true);
+        }
+
+        return rv;
+    }
+    
+    public override bool TryParse(string[] parameters)
+    {
+        if(parameters.Length < 1)
+        {
+            return false;
+        }
+
+        return TryParseFloat(parameters[0].Trim(), out m_timeRemaining);
+    }
+}
+
 public class Wait : SceneActionBase
 {
     private float m_timeRemaining = 0.0f;
@@ -201,7 +327,6 @@ public class Wait : SceneActionBase
         DialogueSystem.Get().hide();
         DialogueSystem.Get().isInSpecialEvent = true;
         m_timeRemaining -= Time.deltaTime;
-        Debug.Log(m_timeRemaining);
 
         if (m_timeRemaining <= 0.0f)
         {
@@ -404,6 +529,7 @@ public class SceneSystem : MonoBehaviour
     private Dictionary<string, GameObject> m_sceneComponents = null;
 
     private List<SceneThread> m_threads;
+    private List<SceneThread> m_threads_to_push = new List<SceneThread>();
 
     private SceneSystem()
     {
@@ -459,6 +585,12 @@ public class SceneSystem : MonoBehaviour
         {
             m_threads.Remove(thread);
         }
+
+        foreach (var t in m_threads_to_push)
+        {
+            m_threads.Add(t);
+        }
+        m_threads_to_push.Clear();
     }
 
     private void RegisterSceneObjects()
@@ -519,7 +651,7 @@ public class SceneSystem : MonoBehaviour
         }
 
         SceneThread thread = new SceneThread(actions, callback);
-        m_threads.Add(thread);
+        m_threads_to_push.Add(thread);
         return true;
     }
 
@@ -530,7 +662,7 @@ public class SceneSystem : MonoBehaviour
         if(ParseAction(actionToParse, out action))
         {
             SceneThread thread = new SceneThread(action, callback);
-            m_threads.Add(thread);  //Maybe not thread safe but whatever
+            m_threads_to_push.Add(thread);
             
             return true;
         }
@@ -566,6 +698,23 @@ public class SceneSystem : MonoBehaviour
                 break;
             case "MoveArc":
                 action = new MoveArc();
+                break;
+            
+            case "BanditSpawnAndAttack":
+                action = new BanditSpawnAndAttack();
+                break;
+            
+            case "BanditSuckerPunch":
+                action = new BanditSuckerPunch();
+                break;
+            
+            case "BanditBeatdown":
+                action = new BanditBeatdown();
+                break;
+            
+            case "EndSequence":
+                action = new BlankAction();
+                DialogueSystem.Get().EndSequence();
                 break;
             
             case "PlayerSetName":

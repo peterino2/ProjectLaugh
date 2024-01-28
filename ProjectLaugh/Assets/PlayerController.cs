@@ -55,6 +55,11 @@ public class PlayerController : MonoBehaviour
         movementInput.x = Input.GetAxisRaw("Horizontal");
         movementInput.y = Input.GetAxisRaw("Vertical");
 
+        if (DialogueSystem.Get().inDialogue)
+        {
+            movementInput *= 0.0f;
+        }
+
 
         // if(movementType == MovementType.VectorMoveToward)
         // {

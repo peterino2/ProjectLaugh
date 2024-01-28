@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 2883651524940879713, guid: 360898a1aaa6ff14b81ac4dc2a8a56c2, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8769611252333639833, guid: 360898a1aaa6ff14b81ac4dc2a8a56c2, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
