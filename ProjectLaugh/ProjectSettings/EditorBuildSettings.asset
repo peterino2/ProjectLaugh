@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: efcecf4b93696a24daffaa44286046e1
   - enabled: 1
-    path: Assets/Scenes/FirstScene_combat_gag.unity
-    guid: 102d79d8399d12a47be4620351404787
+    path: Assets/Scenes/FirstScene.unity
+    guid: 6e4588f542c58c842a3ff19ef4f3716f
   m_configObjects: {}

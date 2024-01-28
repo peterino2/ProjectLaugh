@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
+  m_Name: DS_AttributesAllocated_Even
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - displayText: Wow.. evenly allocated...
+    speaker: Guide1
+    NodeId: 1771606424
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 0
+  - displayText: Indecisive aren't we?
+    speaker: Guide1
+    NodeId: 949896118
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 1
+  - displayText: They say variety is the spice of life, in your case, it's just a
+      recipe for disaster.
+    speaker: Guide1
+    NodeId: 1570509312
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: A pinch of strength, a dash of dexterity, and a sprinkle of intelligence.
+    speaker: Guide1
+    NodeId: 1547819130
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 3
+  - displayText: You've cooked up a hero with the flavor profile of cardboard.
+    speaker: Guide1
+    NodeId: 1903750732
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 4
+  - displayText: Hope the demon king fancies the taste of dissapointment.
+    speaker: Guide1
+    NodeId: 1903750732
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 4

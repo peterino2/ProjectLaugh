@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056fe9ff57a343ea854139abc15d35de, type: 3}
+  m_Name: DS_AttributesAllocated_HighDex
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - displayText: Wow...
+    speaker: Guide1
+    NodeId: 1771606424
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 0
+  - displayText: How does someone get that nimble and still be so stupid and weak?
+    speaker: Guide1
+    NodeId: 109091154
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 1
+  - displayText: You have created a hero with the profile of an anemic child.
+    speaker: Guide1
+    NodeId: 1414534128
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 2
+  - displayText: You might survive with pickpocketing but expect to get your ass
+      beat often.
+    speaker: Guide1
+    NodeId: 1659674041
+    choicesText: []
+    isMovement: 0
+    movementDescription: 
+    characterRate: 30
+    endDialogueAfter: 0
+    nodeIndex: 3
