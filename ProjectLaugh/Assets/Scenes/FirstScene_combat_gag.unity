@@ -29667,6 +29667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbca125767b746718a1101b617779908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   SessionToStart: {fileID: 11400000, guid: 4163b02dfc21b8744a10d2e784a08f1a, type: 2}
 --- !u!61 &683169029
 BoxCollider2D:
@@ -30379,11 +30380,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!224 &791890004 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224795495137418836, guid: 30898bb5526f8f542aa93bfaac20d996, type: 3}
-  m_PrefabInstance: {fileID: 1353954964}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &870387586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8432889884932932030, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
@@ -31330,7 +31326,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1533797804}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1259392919135328, guid: 30898bb5526f8f542aa93bfaac20d996, type: 3}
       propertyPath: m_Name
@@ -31601,6 +31597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbca125767b746718a1101b617779908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   SessionToStart: {fileID: 11400000, guid: a0492723a570f6f4ab599aa167970555, type: 2}
 --- !u!61 &1610723892
 BoxCollider2D:
@@ -32762,7 +32759,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8e1b75bdef97651479c305d9949a1307, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -33103,4 +33100,4 @@ SceneRoots:
   - {fileID: 5117606580704175335}
   - {fileID: 314642018}
   - {fileID: 1727637853}
-  - {fileID: 1533797804}
+  - {fileID: 1353954964}

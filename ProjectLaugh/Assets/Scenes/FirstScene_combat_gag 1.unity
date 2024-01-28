@@ -31326,7 +31326,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8e1b75bdef97651479c305d9949a1307, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -31440,7 +31440,7 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 6205baf386184bf4c879e8216918a90a, type: 2}
   _event: {fileID: 11400000, guid: 6205baf386184bf4c879e8216918a90a, type: 2}
   _response:
     m_PersistentCalls:
