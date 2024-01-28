@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
         Teleport
     }
 
-    
+    private Vector2 lastMovementdirection = new Vector2(0, 0);
     [SerializeField]
     private MovementType movementType = MovementType.RigidbodyVelocity;
 
@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
     {
         movementInput.x = Input.GetAxisRaw("Horizontal");
         movementInput.y = Input.GetAxisRaw("Vertical");
+        if (movementInput.magnitude > 0.1) {
+            lastMovementdirection = movementInput.normalized;
+        }
 
         if (DialogueSystem.Get().inDialogue)
         {
@@ -80,12 +83,15 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("magicAttack");
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) == true && !isAttacking) {
+        if (Input.GetKeyDown(KeyCode.Alpha1) == true && !isAttacking) {
             Teleport(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) == true && !isAttacking) {
+            Teleport(1);
         }
         
         int count = rb.Cast(
-                 movementInput,
+                 lastMovementdirection,
                  interactionFilter,
                  castCollisions,
                  interactionDistance
