@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using Dialogue;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using ScriptableObjectArchitecture;
+using ScriptableObjectArchitecture.Examples;
 
 
 public class DialogueSystem : MonoBehaviour
@@ -17,6 +19,8 @@ public class DialogueSystem : MonoBehaviour
         return gDialogueSystem;
     }
 
+    public FloatReference playerHealth;
+    public GameEvent onPlayerDamagedEvent;
     public bool inDialogue;
     public TextMeshProUGUI displayText; 
     public TextMeshProUGUI speakerName; 
@@ -231,6 +235,13 @@ public class DialogueSystem : MonoBehaviour
     {
         isInSpecialEvent = true;
         Debug.Log("HANDLING SPECIAL EVENT " + eventString);
+        if (eventString == "BanditSpawnAndAttack")
+        {
+            var monster = FindObjectOfType<MonsterController>();
+            monster.attackOne();
+            playerHealth.Value -= 0.5f;
+            onPlayerDamagedEvent.Raise();
+        }
     }
 
     public void EndSequence()

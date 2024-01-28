@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
     public float interactionDistance;
 
+    private Vector2 lastValidMovementDir = new Vector2(0,0);
+
     // Update is called once per frame
     void Update()
     {
@@ -58,6 +60,11 @@ public class PlayerController : MonoBehaviour
         if (DialogueSystem.Get().inDialogue)
         {
             movementInput *= 0.0f;
+        }
+
+        if (movementInput.magnitude > 0.1)
+        {
+            lastValidMovementDir = movementInput.normalized;
         }
 
 
@@ -85,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
         
         int count = rb.Cast(
-                 movementInput,
+                 lastValidMovementDir,
                  interactionFilter,
                  castCollisions,
                  interactionDistance

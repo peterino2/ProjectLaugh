@@ -8,6 +8,7 @@ public class DamagedPitchUpdate : MonoBehaviour
     public FloatReference playerHealth;
 
     public void UpdatePitch(AudioSource source) {
-        source.pitch = 1-((1-playerHealth.Value)/2);
+        Debug.Log(playerHealth.Value);
+        source.pitch = 1-( (1-playerHealth.Value)/2);
     }
 }

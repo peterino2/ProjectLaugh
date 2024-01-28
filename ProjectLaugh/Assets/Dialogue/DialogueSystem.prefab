@@ -251,6 +251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewer: {fileID: 3647425704752539501}
+  playerHealth:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 00040033833585f4b940c1e6c8d5d2e1, type: 2}
   inDialogue: 0
   displayText: {fileID: 7289454338388274886}
   speakerName: {fileID: 3566220180038120958}
