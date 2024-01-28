@@ -31135,6 +31135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37f1585bfb59149b02bb1654fdf6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageNumberPrefab: {fileID: 0}
 --- !u!114 &1339291846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32463,6 +32464,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2045599502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2314457855537613892, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
+  m_PrefabInstance: {fileID: 2201050989999482320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2045599510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045599502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55072f868793ff34fb43b10eb6357dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sceneObjectName: Player
+  m_sceneTags: []
 --- !u!1001 &2201050989999482320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32534,7 +32554,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2314457855537613892, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2045599510}
   m_SourcePrefab: {fileID: 100100000, guid: 286c1973c924b0042a9dee99296b4319, type: 3}
 --- !u!1001 &5117606580704175335
 PrefabInstance:

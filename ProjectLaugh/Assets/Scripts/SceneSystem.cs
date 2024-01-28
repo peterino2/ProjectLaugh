@@ -246,6 +246,31 @@ public class StorePosition : SceneActionBase
     }
 }
 
+public class TeleportTo : SceneActionBase
+{
+    GameObject m_object;
+    Vector3 m_position;
+
+    public override bool IsInstant()
+    {
+        return true;
+    }
+
+    public override bool Tick()
+    {
+        m_object.transform.position = m_position;
+        return true;
+    }
+
+    public override bool TryParse(string[] parameters)
+    {
+        TryParseObject(parameters[0], out m_object);
+        TryParseVector(parameters[1], out m_position);
+
+        return true;
+    }
+}
+
 public class MoveTo : SceneActionBase
 {
     protected GameObject m_objectToMove = null;
@@ -656,8 +681,8 @@ public class Bounce : SceneActionBase
         }
 
         //should bounce
-        if((m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.001f) || 
-               (!m_bounceDirectionPositive && (Mathf.Abs(m_object.transform.position[(int)m_bounceAxis] - m_initialPosition[(int)m_bounceAxis])) < 0.001f))
+        if((m_bounceDirectionPositive && (m_object.transform.position[(int)m_bounceAxis] <= (m_initialPosition[(int)m_bounceAxis] + 0.001f))) || 
+               (!m_bounceDirectionPositive && (m_object.transform.position[(int)m_bounceAxis] >= (m_initialPosition[(int)m_bounceAxis] - 0.001f))))
         {
             Vector3 curPosition = m_object.transform.position;
             curPosition[(int)m_bounceAxis] = m_initialPosition[(int)m_bounceAxis];
@@ -1059,6 +1084,9 @@ public class SceneSystem : MonoBehaviour
                 break;
             case "FadeOut":
                 action = new FadeOut();
+                break;
+            case "TeleportTo":
+                action = new TeleportTo();
                 break;
 
             case "BanditSpawnAndAttack":
